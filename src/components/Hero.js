@@ -3,6 +3,10 @@ import React from 'react';
 import dummyImage from '../assets/profile.png';
 import upwork from '../assets/upwork.png';
 import fiverr from '../assets/fiverr.png';
+import peopleperhour from '../assets/peopleperhour.png';
+
+
+
 
 export const Hero = ({ theme }) => {
   const styles = {
@@ -118,7 +122,7 @@ export const Hero = ({ theme }) => {
       fontSize: '0.9rem',
       display: 'flex',
       alignItems: 'center',
-      gap: '0.8rem'
+      gap: '0.2rem'
     },
 
     imageWrapper: {
@@ -131,8 +135,8 @@ export const Hero = ({ theme }) => {
       }
     },
     image: {
-      width: '320px',
-      height: '320px',
+      width: '450px',
+      height: '450px',
       objectFit: 'cover',
       borderRadius: '50%',
       boxShadow: `
@@ -169,6 +173,10 @@ export const Hero = ({ theme }) => {
           <span style={styles.badge}>
             <img src={fiverr} alt="Fiverr" style={{ width: '50px' }} />
             Level 2 Seller
+          </span>
+          <span style={styles.badge}>
+            <img src={peopleperhour} alt="Fiverr" style={{ width: '50px' }} />
+            Level 5 Seller
           </span>
         </div>
         
