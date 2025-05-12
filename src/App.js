@@ -5,6 +5,7 @@ import { Services } from './components/Services';
 import { Portfolio } from './components/Portfolio';
 import { ClientReviews } from './components/ClientReviews';
 import { Contact } from './components/Contact';
+import { SocialLinks } from './components/SocialLinks';
 import { Footer } from './components/Footer';
 import { darkTheme } from './constants/theme';
 

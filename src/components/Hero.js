@@ -9,6 +9,16 @@ import peopleperhour from '../assets/peopleperhour.png';
 
 
 export const Hero = ({ theme }) => {
+
+  const socialLinks = [
+    { name: 'LinkedIn', url: '#', icon: require('../assets/linkedin.png') },
+    { name: 'GitHub', url: '#', icon: require('../assets/github.png') },
+    { name: 'Upwork', url: '#', icon: require('../assets/upwork.png') },
+    { name: 'Fiverr', url: '#', icon: require('../assets/fiverr.png') },
+
+
+  ];
+
   const styles = {
     hero: {
       display: 'flex',
@@ -16,7 +26,8 @@ export const Hero = ({ theme }) => {
       gap: '4rem',
       padding: '6rem 1rem 4rem',
       position: 'relative',
-      '@media (max-width: 768px)': { 
+
+      '@media (max-width: 768px)': {
         flexDirection: 'column',
         padding: '4rem 1rem 2rem',
         gap: '2rem'
@@ -26,8 +37,8 @@ export const Hero = ({ theme }) => {
       flex: 1,
       textAlign: 'left'
     },
-    
-    
+
+
     heading: {
       fontSize: '3.5rem',
       fontWeight: 800,
@@ -36,12 +47,12 @@ export const Hero = ({ theme }) => {
       WebkitTextFillColor: 'transparent',
       lineHeight: 1.2,
       marginBottom: '1.5rem',
-      '@media (max-width: 768px)': { 
+      '@media (max-width: 768px)': {
         fontSize: '2.2rem',
         textAlign: 'center'
       }
     },
-       heading2: {
+    heading2: {
       fontSize: '2.5rem',
       fontWeight: 400,
       background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
@@ -49,7 +60,7 @@ export const Hero = ({ theme }) => {
       WebkitTextFillColor: 'transparent',
       lineHeight: 1.2,
       marginBottom: '1.5rem',
-      '@media (max-width: 768px)': { 
+      '@media (max-width: 768px)': {
         fontSize: '2.2rem',
         textAlign: 'center'
       }
@@ -60,7 +71,7 @@ export const Hero = ({ theme }) => {
       marginBottom: '1rem',
       fontWeight: 500,
       opacity: 0.9,
-      '@media (max-width: 768px)': { 
+      '@media (max-width: 768px)': {
         fontSize: '1.1rem',
         textAlign: 'center'
       }
@@ -71,12 +82,12 @@ export const Hero = ({ theme }) => {
       marginBottom: '2rem',
       opacity: 0.8,
       lineHeight: 1.6,
-      '@media (max-width: 768px)': { 
+      '@media (max-width: 768px)': {
         fontSize: '1rem',
         textAlign: 'center'
       }
     },
-    
+
     buttonGroup: {
       display: 'flex',
       gap: '1.5rem',
@@ -99,7 +110,7 @@ export const Hero = ({ theme }) => {
         transform: 'translateY(-3px)',
         boxShadow: `0 6px 24px ${theme.shadow}`
       },
-      '@media (max-width: 768px)': { 
+      '@media (max-width: 768px)': {
         padding: '0.8rem 1.5rem',
         fontSize: '1rem'
       }
@@ -159,7 +170,43 @@ export const Hero = ({ theme }) => {
         `
       }
     },
-    
+
+    socialLinksContainer: {
+      position: 'absolute',
+      right: '-40px',
+      top: '50%',
+      transform: 'translateY(-50%)',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '1.5rem',
+      '@media (max-width: 768px)': {
+        position: 'static',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop: '2rem',
+        transform: 'none'
+      }
+    },
+    socialLink: {
+      width: '70px',
+      height: '70px',
+      borderRadius: '50%',
+      background: 'rgba(255,255,255,0.1)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      transition: 'all 0.3s ease',
+      '&:hover': {
+        background: theme.primary,
+        transform: 'scale(1.1)'
+      }
+    },
+    socialIcon: {
+      width: '44px',
+      height: '44px',
+    }
+
+
   };
 
   return (
@@ -179,35 +226,61 @@ export const Hero = ({ theme }) => {
             Level 5 Seller
           </span>
         </div>
-        
+
         <h1 style={styles.heading}>Top-Rated Freelance Developer.</h1>
 
- <h2 style={styles.heading2}>
-Delivering agency-level quality at freelancer-friendly rates.</h2>
-    
+        <h2 style={styles.heading2}>
+          Delivering agency-level quality at freelancer-friendly rates.</h2>
+
         <p style={styles.subheading}>Full-Stack Developer | Web & Mobile Apps | 50+ Projects Delivered</p>
         <p style={styles.tagline}>
-      Creating seamless, user-friendly websites and apps with strong, reliable backends.  
+          Creating seamless, user-friendly websites and apps with strong, reliable backends.
         </p>
-        
+
         <div style={styles.buttonGroup}>
           <button style={styles.button}>Hire Me</button>
-          <button style={{...styles.button, background: 'none', border: `2px solid ${theme.primary}`}}>
+          <button style={{ ...styles.button, background: 'none', border: `2px solid ${theme.primary}` }}>
             View Portfolio
           </button>
         </div>
+
+
       </div>
 
-     <div style={styles.imageWrapper}>
-        <img 
-          src={dummyImage} 
-          alt="Shehbaz Yameen" 
+      <div style={styles.imageWrapper}>
+        <img
+          src={dummyImage}
+          alt="Shehbaz Yameen"
           style={{
             ...styles.image,
             border: 'none', // Remove any existing border
-          }} 
+          }}
         />
+
+
+        {/* Social Links */}
+        <div style={styles.socialLinksContainer}>
+          {socialLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={styles.socialLink}
+            >
+              <img
+                src={link.icon}
+                alt={link.name}
+                style={styles.socialIcon}
+              />
+            </a>
+          ))}
+        </div>
+
       </div>
+
+
+
     </section>
   );
 };

@@ -79,9 +79,9 @@ export const Contact = ({ theme }) => {
       <h2 style={styles.sectionTitle}>Let's Connect</h2>
       <div style={styles.contactGrid}>
         <div>
-          <div style={styles.paragraph}>📧 shehbaz@example.com</div>
-          <div style={styles.paragraph}>📱 +1 (234) 567-8900</div>
-          <div style={styles.paragraph}>📍 Based in San Francisco, CA</div>
+          <div style={styles.paragraph}>📧 shehbaz.webandappdev@gmail.com</div>
+          <div style={styles.paragraph}>📱 +92 (310) 060-9111</div>
+          <div style={styles.paragraph}>📍 Based in Asia Karachi, Pakistan</div>
           <div style={{ margin: '2rem 0', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             <button style={styles.button}>Upwork Profile</button>
             <button style={styles.button}>Fiverr Profile</button>
