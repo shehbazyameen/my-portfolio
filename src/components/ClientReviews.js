@@ -62,7 +62,7 @@ export const ClientReviews = ({ theme }) => {
       position: 'relative',
       minHeight: '250px',
       boxSizing: 'border-box', // Add this
-      minHeight: '380px', // Increase min-height for rating space,
+      minHeight: '360px', // Increase min-height for rating space,
       '&::before': {
         content: '"\\201C"',
         position: 'absolute',
@@ -98,12 +98,12 @@ export const ClientReviews = ({ theme }) => {
 
   const renderStars = (rating) => {
     return (
-      <div style={{ display: 'flex', gap: '4px', marginTop: '0.5rem' }}>
+      <div style={{ display: 'flex', gap: '4px', }}>
         {[...Array(5)].map((_, index) => (
           <svg
             key={index}
-            width="20"
-            height="20"
+            width="25"
+            height="25"
             viewBox="0 0 24 24"
             fill={index < rating ? theme.primary : '#e4e5e9'}
             xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,7 @@ export const ClientReviews = ({ theme }) => {
     );
   };
   const [expandedReviews, setExpandedReviews] = useState({});
-  const MAX_CHARACTERS = 350;
+  const MAX_CHARACTERS = 300;
 
   const toggleExpand = (reviewId) => {
     setExpandedReviews(prev => ({
@@ -160,12 +160,12 @@ export const ClientReviews = ({ theme }) => {
               <div style={styles.review}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                   <img
-                    src={`/${review.platform}-icon.svg`}
+                    src={review.platform}
                     alt={review.platform}
-                    style={{ width: '24px', filter: 'brightness(0) invert(1)' }}
+                    style={{ width: '50px'}}
                   />
                   <div>
-                    <p style={{ ...styles.paragraph, fontWeight: 600 }}>
+                    <p style={{ ...styles.paragraph, fontWeight: 600, fontSize:'1.2rem' }}>
                       {review.client} - {review.project}
                     </p>
                     {renderStars(review.rating)}
