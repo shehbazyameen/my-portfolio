@@ -15,8 +15,6 @@ export const Header = ({ theme, scrollTo }) => {
             borderBottom: `1px solid ${theme.border}`,
             padding: '1rem 2rem',
            
-            
-           
              
         },
         nav: {

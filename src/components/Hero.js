@@ -11,12 +11,14 @@ import peopleperhour from '../assets/peopleperhour.png';
 export const Hero = ({ theme, scrollTo }) => {
 
   const socialLinks = [
-    { name: 'LinkedIn', url: '#', icon: require('../assets/linkedin.png') },
-    { name: 'GitHub', url: '#', icon: require('../assets/github.png') },
-    { name: 'Upwork', url: '#', icon: require('../assets/upwork.png') },
-    { name: 'Fiverr', url: '#', icon: require('../assets/fiverr.png') },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shehbazyameen', icon: require('../assets/linkedin.png') },
+    { name: 'GitHub', url: 'https://github.com/shehbazyameen', icon: require('../assets/github.png') },
+    
+    { name: 'Instagram', url: 'https://www.instagram.com/shehbazyameen/', icon: require('../assets/instagram.png') },
+    { name: 'Facebook', url: 'https://www.facebook.com/people/Shehbaz-Yameen/100010091083500/', icon: require('../assets/facebook.png') },
+    { name: 'Twitter', url: 'https://x.com/43shehbaz', icon: require('../assets/twitter.png') },
 
-
+    
   ];
 
   const styles = {
@@ -247,11 +249,11 @@ export const Hero = ({ theme, scrollTo }) => {
             Top Rated
           </span>
           <span style={styles.badge}>
-            <img src={fiverr} alt="Fiverr" style={{ width: '50px' }} />
+            <img src={fiverr} alt="Fiverr" style={{ width: '42px' }} />
             Level 2 Seller
           </span>
           <span style={styles.badge}>
-            <img src={peopleperhour} alt="Fiverr" style={{ width: '50px' }} />
+            <img src={peopleperhour} alt="peopleperhour" style={{ width: '42px' }} />
             Level 5 Seller
           </span>
         </div>
