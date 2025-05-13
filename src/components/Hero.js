@@ -11,9 +11,8 @@ import peopleperhour from '../assets/peopleperhour.png';
 export const Hero = ({ theme, scrollTo }) => {
 
   const socialLinks = [
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shehbazyameen', icon: require('../assets/linkedin.png') },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shehbaz-yameen/', icon: require('../assets/linkedin.png') },
     { name: 'GitHub', url: 'https://github.com/shehbazyameen', icon: require('../assets/github.png') },
-
     { name: 'Instagram', url: 'https://www.instagram.com/shehbazyameen/', icon: require('../assets/instagram.png') },
     { name: 'Facebook', url: 'https://www.facebook.com/people/Shehbaz-Yameen/100010091083500/', icon: require('../assets/facebook.png') },
     { name: 'Twitter', url: 'https://x.com/43shehbaz', icon: require('../assets/twitter.png') },
@@ -274,12 +273,7 @@ export const Hero = ({ theme, scrollTo }) => {
           >
             View Portfolio
           </button>
-
-         
-         
-
-
-         
+        
 
           <a
 
@@ -296,7 +290,7 @@ export const Hero = ({ theme, scrollTo }) => {
 
               style={{ ...styles.button, background: 'none', border: `2px solid ${theme.primary}` }}>Chat on WhatsApp</button>
           </a>
-          
+
           <a
 
             href={'https://www.upwork.com/freelancers/~010d76b63a789d9687'}

@@ -22,7 +22,7 @@ export const Footer = ({ theme }) => {
       width: '40px',
       height: '40px',
       transition: 'all 0.3s ease',
-      filter: 'brightness(0) invert(1)',
+      
       '&:hover': { transform: 'translateY(-3px)' }
     },
     legalLinks: {
@@ -46,15 +46,26 @@ export const Footer = ({ theme }) => {
   return (
     <footer style={styles.footer}>
       <div style={styles.socialLinks}>
-        <a href="https://linkedin.com" target="_blank" rel="noreferrer">
-          <img src="/linkedin-icon.svg" alt="LinkedIn" style={styles.socialIcon} />
+        <a href="https://www.linkedin.com/in/shehbaz-yameen/" target="_blank" rel="noreferrer">
+          <img src={require('../assets/linkedin.png')} style={styles.socialIcon} />
         </a>
-        <a href="https://github.com" target="_blank" rel="noreferrer">
-          <img src="/github-icon.svg" alt="GitHub" style={styles.socialIcon} />
+        <a href="https://github.com/shehbazyameen" target="_blank" rel="noreferrer">
+          <img src={require('../assets/github.png')} alt="GitHub" style={styles.socialIcon} />
         </a>
-        <a href="https://dribbble.com" target="_blank" rel="noreferrer">
-          <img src="/dribbble-icon.svg" alt="Dribbble" style={styles.socialIcon} />
+        <a href="https://www.instagram.com/shehbazyameen/" target="_blank" rel="noreferrer">
+          <img src={require('../assets/instagram.png')} alt="Instagram" style={styles.socialIcon} />
         </a>
+
+        <a href="https://www.facebook.com/people/Shehbaz-Yameen/100010091083500/" target="_blank" rel="noreferrer">
+          <img src={require('../assets/facebook.png')} alt="Facebook" style={styles.socialIcon} />
+        </a>
+        <a href="https://x.com/43shehbaz" target="_blank" rel="noreferrer">
+          <img src={require('../assets/twitter.png')} alt="Twitter" style={styles.socialIcon} />
+        </a>
+
+
+
+
       </div>
       <div style={styles.legalLinks}>
         <a href="#" style={styles.link}>Terms of Service</a>
