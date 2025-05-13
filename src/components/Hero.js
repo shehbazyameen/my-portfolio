@@ -1,14 +1,14 @@
 // src/components/Hero.js
 import React from 'react';
+import { TypeAnimation } from 'react-type-animation';
+
 import dummyImage from '../assets/profile.png';
 import upwork from '../assets/upwork.png';
 import fiverr from '../assets/fiverr.png';
 import peopleperhour from '../assets/peopleperhour.png';
 
 
-
-
-export const Hero = ({ theme }) => {
+export const Hero = ({ theme, scrollTo }) => {
 
   const socialLinks = [
     { name: 'LinkedIn', url: '#', icon: require('../assets/linkedin.png') },
@@ -20,11 +20,22 @@ export const Hero = ({ theme }) => {
   ];
 
   const styles = {
+    greetingText: {
+      fontSize: '1.8rem',
+      color: theme.text,
+      margin: '0.5rem 0 1.5rem 0',
+      minHeight: '3rem',
+
+      '@media (max-width: 768px)': {
+        fontSize: '1.4rem',
+        textAlign: 'center'
+      }
+    },
     hero: {
       display: 'flex',
       alignItems: 'center',
       gap: '4rem',
-      padding: '6rem 1rem 4rem',
+      padding: '2rem 1rem 4rem',
       position: 'relative',
 
       '@media (max-width: 768px)': {
@@ -211,7 +222,25 @@ export const Hero = ({ theme }) => {
 
   return (
     <section style={styles.hero}>
+
       <div style={styles.contentWrapper}>
+
+        {/* Animated Greeting */}
+        <TypeAnimation
+          sequence={[
+            'Hi there! 👋',
+            1000,
+            'Hi there! I\'m Shehbaz Yameen 👋',
+            1000,
+
+          ]}
+          wrapper="div"
+          cursor={true}
+          repeat={Infinity}
+          style={styles.greetingText}
+        />
+
+        <h1 style={styles.heading}>Top-Rated Freelance Developer.</h1>
         <div style={styles.platformBadges}>
           <span style={styles.badge}>
             <img src={upwork} alt="Upwork" style={{ width: '40px' }} />
@@ -227,8 +256,6 @@ export const Hero = ({ theme }) => {
           </span>
         </div>
 
-        <h1 style={styles.heading}>Top-Rated Freelance Developer.</h1>
-
         <h2 style={styles.heading2}>
           Delivering agency-level quality at freelancer-friendly rates.</h2>
 
@@ -239,12 +266,14 @@ export const Hero = ({ theme }) => {
 
         <div style={styles.buttonGroup}>
           <button style={styles.button}>Hire Me</button>
-          <button style={{ ...styles.button, background: 'none', border: `2px solid ${theme.primary}` }}>
+          <button
+            onClick={() => scrollTo('portfolio')}
+          style={{ ...styles.button, background: 'none', border: `2px solid ${theme.primary}` }}
+          >
             View Portfolio
           </button>
+          
         </div>
-
-
       </div>
 
       <div style={styles.imageWrapper}>

@@ -10,7 +10,14 @@ export const darkTheme = {
   badgeText: '#c7d2fe',
   shadow: 'rgba(0, 0, 0, 0.2)',
   quoteColor: '#4f46e5',
-  imageBorder: '#334155'
+  imageBorder: '#334155',
+
+  zIndices: {
+    header: 1000,
+    // ...
+  }
+
+
 };
 
 export const reviews = [
