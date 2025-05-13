@@ -1,8 +1,108 @@
 // src/components/Contact.js
-import React from 'react';
+import React, { useState } from 'react';
 
 export const Contact = ({ theme }) => {
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState(null);
+  const formRef = React.useRef(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setError(null);
+
+    const formData = new FormData(e.target);
+
+    try {
+      const response = await fetch('https://formspree.io/f/mldbojej', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        formRef.current.reset();
+        setIsSubmitted(true);
+        setTimeout(() => setIsSubmitted(false), 5000); // Hide message after 5 seconds
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      setError('There was a problem submitting the form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const styles = {
+    // ... keep previous styles
+    successMessage: {
+      background: 'rgba(76, 175, 80, 0.1)',
+      border: '1px solid #4CAF50',
+      borderRadius: '8px',
+      padding: '1rem',
+      color: '#4CAF50',
+      marginBottom: '1rem',
+      textAlign: 'center'
+    },
+    errorMessage: {
+      background: 'rgba(244, 67, 54, 0.1)',
+      border: '1px solid #f44336',
+      borderRadius: '8px',
+      padding: '1rem',
+      color: '#f44336',
+      marginBottom: '1rem',
+      textAlign: 'center'
+    },
+
+    formContainer: {
+      background: 'rgba(15, 23, 42, 0.3)',
+      borderRadius: '12px',
+      padding: '2rem',
+      border: `1px solid ${theme.border}`,
+      position: 'relative'
+    },
+  
+    textArea: {
+      height: '120px',
+      resize: 'vertical'
+    },
+    errorText: {
+      color: '#ff4444',
+      fontSize: '0.9rem',
+      marginBottom: '1rem'
+    },
+    successMessage: {
+      background: 'rgba(76, 175, 80, 0.1)',
+      border: '1px solid #4CAF50',
+      borderRadius: '8px',
+      padding: '1rem',
+      color: '#4CAF50',
+      marginBottom: '1rem'
+    },
+    loadingOverlay: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      background: 'rgba(0, 0, 0, 0.7)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: '12px'
+    },
+    spinner: {
+      animation: 'spin 1s linear infinite',
+      width: '24px',
+      height: '24px'
+    },
+
+
     section: {
       marginBottom: '5rem',
       padding: '2.5rem',
@@ -60,7 +160,7 @@ export const Contact = ({ theme }) => {
     icon: {
       width: '24px',
       height: '24px',
-      filter: 'brightness(0) invert(1)'
+    //  filter: 'brightness(0) invert(1)'
     },
     contactText: {
       fontSize: '1.1rem',
@@ -68,14 +168,9 @@ export const Contact = ({ theme }) => {
       margin: 0,
       opacity: 0.9
     },
-    formContainer: {
-      background: 'rgba(15, 23, 42, 0.3)',
-      borderRadius: '12px',
-      padding: '2rem',
-      border: `1px solid ${theme.border}`
-    },
+    
     inputField: {
-      width: '100%',
+      width: '90%',
       padding: '0.8rem 1rem',
       marginBottom: '1.5rem',
       background: 'rgba(255,255,255,0.05)',
@@ -112,6 +207,7 @@ export const Contact = ({ theme }) => {
     }
   };
 
+
   return (
     <section style={styles.section}>
       <h2 style={styles.sectionTitle}>Get in Touch</h2>
@@ -120,42 +216,112 @@ export const Contact = ({ theme }) => {
         {/* Contact Information */}
         <div style={styles.contactInfo}>
           <div style={styles.contactItem}>
-            <img src="/email-icon.svg" alt="Email" style={styles.icon} />
+            <img src={require('../assets/gmail.png')} alt="Email" style={styles.icon} />
             <p style={styles.contactText}>shehbaz.webandappdev@gmail.com</p>
           </div>
 
           <div style={styles.contactItem}>
-            <img src="/phone-icon.svg" alt="Phone" style={styles.icon} />
+            <img src={require('../assets/whatsapp.png')} alt="Phone" style={styles.icon} />
             <p style={styles.contactText}>+92 (310) 060-9111</p>
           </div>
 
           <div style={styles.contactItem}>
-            <img src="/location-icon.svg" alt="Location" style={styles.icon} />
+            <img src={require('../assets/google-maps.png')} alt="Location" style={styles.icon} />
             <p style={styles.contactText}>Karachi, Pakistan</p>
           </div>
         </div>
 
+        
         {/* Contact Form */}
-        <div style={styles.formContainer}>
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          style={styles.formContainer}
+        >
+          {isSubmitted && (
+            <div style={styles.successMessage}>
+              Message sent successfully! 🎉 I'll respond within 24 hours.
+            </div>
+          )}
+
+          {error && (
+            <div style={styles.errorMessage}>
+              {error}
+            </div>
+          )}
+
           <input
             type="text"
-            placeholder="Your Name"
+            name="name"
+            placeholder="Your Name *"
+            required
             style={styles.inputField}
+            disabled={isSubmitting}
           />
+
           <input
             type="email"
-            placeholder="Your Email"
+            name="_replyto"
+            placeholder="Your Email *"
+            required
             style={styles.inputField}
+            disabled={isSubmitting}
           />
+
           <textarea
-            placeholder="Your Message"
+            name="projectBrief"
+            placeholder="Project Brief *"
+            required
             style={{ ...styles.inputField, ...styles.textArea }}
+            disabled={isSubmitting}
           />
-          <button style={styles.submitButton}>
-            Send Message
+
+          <textarea
+            name="budgetTimeline"
+            placeholder="Budget & Timeline Details *"
+            required
+            style={{ ...styles.inputField, ...styles.textArea }}
+            disabled={isSubmitting}
+          />
+
+          <input type="hidden" name="_subject" value="New Project Inquiry" />
+         
+
+          <button
+            type="submit"
+            style={styles.submitButton}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg
+                  style={styles.spinner}
+                  viewBox="0 0 50 50"
+                >
+                  <circle
+                    cx="25"
+                    cy="25"
+                    r="20"
+                    fill="none"
+                    stroke="#fff"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </div>
+            ) : (
+              'Send Message'
+            )}
           </button>
-        </div>
+        </form>
       </div>
+
+      <style>{`
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+      `}</style>
     </section>
   );
 };
