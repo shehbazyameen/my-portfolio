@@ -11,7 +11,10 @@ export const Contact = ({ theme }) => {
       boxShadow: `0 8px 32px ${theme.shadow}`,
       backdropFilter: 'blur(12px)',
       border: `1px solid ${theme.border}`,
-      '@media (max-width: 768px)': { padding: '1.5rem', borderRadius: '16px' }
+      '@media (max-width: 768px)': {
+        padding: '1.5rem',
+        borderRadius: '16px'
+      }
     },
     sectionTitle: {
       fontSize: '2.5rem',
@@ -31,79 +34,126 @@ export const Contact = ({ theme }) => {
       },
       '@media (max-width: 768px)': { fontSize: '2rem' }
     },
-    contactGrid: {
+    contactWrapper: {
       display: 'grid',
       gridTemplateColumns: '1fr 1fr',
-      gap: '2rem',
-      '@media (max-width: 768px)': { gridTemplateColumns: '1fr' }
+      gap: '3rem',
+      '@media (max-width: 768px)': {
+        gridTemplateColumns: '1fr',
+        gap: '2rem'
+      }
     },
-    projectCard: {
-      background: 'rgba(15, 23, 42, 0.5)',
-      borderRadius: '16px',
+    contactInfo: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '1.5rem'
+    },
+    contactItem: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '1rem',
       padding: '1.5rem',
-      border: `1px solid ${theme.border}`,
+      background: 'rgba(15, 23, 42, 0.3)',
+      borderRadius: '12px',
+      border: `1px solid ${theme.border}`
+    },
+    icon: {
+      width: '24px',
+      height: '24px',
+      filter: 'brightness(0) invert(1)'
+    },
+    contactText: {
+      fontSize: '1.1rem',
+      color: theme.text,
+      margin: 0,
+      opacity: 0.9
+    },
+    formContainer: {
+      background: 'rgba(15, 23, 42, 0.3)',
+      borderRadius: '12px',
+      padding: '2rem',
+      border: `1px solid ${theme.border}`
     },
     inputField: {
-      background: 'rgba(255,255,255,0.1)',
-      border: `1px solid ${theme.border}`,
       width: '100%',
-      padding: '0.8rem',
-      margin: '0.5rem 0',
+      padding: '0.8rem 1rem',
+      marginBottom: '1.5rem',
+      background: 'rgba(255,255,255,0.05)',
+      border: `1px solid ${theme.border}`,
       borderRadius: '8px',
       color: theme.text,
-      fontSize: '1rem'
+      fontSize: '1rem',
+      transition: 'all 0.3s ease',
+      '&:focus': {
+        outline: 'none',
+        borderColor: theme.primary,
+        boxShadow: `0 0 0 3px ${theme.primary}20`
+      }
     },
-    button: {
+    textArea: {
+      height: '120px',
+      resize: 'vertical'
+    },
+    submitButton: {
       background: `linear-gradient(135deg, ${theme.primary}, ${theme.secondary})`,
       border: 'none',
-      padding: '1rem 2.5rem',
-      borderRadius: '12px',
+      padding: '1rem 2rem',
+      borderRadius: '8px',
       color: '#fff',
+      fontSize: '1rem',
       fontWeight: 600,
-      fontSize: '1.1rem',
       cursor: 'pointer',
       width: '100%',
-      transition: 'all 0.3s ease'
-    },
-    paragraph: {
-      fontSize: '1.1rem',
-      lineHeight: 1.7,
-      color: theme.text,
-      opacity: 0.9,
-      margin: '0.5rem 0'
+      transition: 'all 0.3s ease',
+      '&:hover': {
+        transform: 'translateY(-2px)',
+        boxShadow: `0 5px 15px ${theme.primary}30`
+      }
     }
   };
 
   return (
     <section style={styles.section}>
-      <h2 style={styles.sectionTitle}>Let's Connect</h2>
-      <div style={styles.contactGrid}>
-        <div>
-          <div style={styles.paragraph}>📧 shehbaz.webandappdev@gmail.com</div>
-          <div style={styles.paragraph}>📱 +92 (310) 060-9111</div>
-          <div style={styles.paragraph}>📍 Based in Asia Karachi, Pakistan</div>
-          <div style={{ margin: '2rem 0', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-            <button style={styles.button}>Upwork Profile</button>
-            <button style={styles.button}>Fiverr Profile</button>
+      <h2 style={styles.sectionTitle}>Get in Touch</h2>
+
+      <div style={styles.contactWrapper}>
+        {/* Contact Information */}
+        <div style={styles.contactInfo}>
+          <div style={styles.contactItem}>
+            <img src="/email-icon.svg" alt="Email" style={styles.icon} />
+            <p style={styles.contactText}>shehbaz.webandappdev@gmail.com</p>
+          </div>
+
+          <div style={styles.contactItem}>
+            <img src="/phone-icon.svg" alt="Phone" style={styles.icon} />
+            <p style={styles.contactText}>+92 (310) 060-9111</p>
+          </div>
+
+          <div style={styles.contactItem}>
+            <img src="/location-icon.svg" alt="Location" style={styles.icon} />
+            <p style={styles.contactText}>Karachi, Pakistan</p>
           </div>
         </div>
-        <div>
-          <div style={styles.projectCard}>
-            <h3 style={{ color: theme.text, marginBottom: '1rem' }}>Quick Inquiry</h3>
-            <input 
-              type="text" 
-              placeholder="Your Name" 
-              style={styles.inputField} 
-            />
-            <input 
-              type="email" 
-              placeholder="Your Email" 
-              style={styles.inputField} 
-            />
-            <button style={styles.button}>
-              Send Message
-            </button>
-          </div>
+
+        {/* Contact Form */}
+        <div style={styles.formContainer}>
+          <input
+            type="text"
+            placeholder="Your Name"
+            style={styles.inputField}
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            style={styles.inputField}
+          />
+          <textarea
+            placeholder="Your Message"
+            style={{ ...styles.inputField, ...styles.textArea }}
+          />
+          <button style={styles.submitButton}>
+            Send Message
+          </button>
         </div>
       </div>
     </section>

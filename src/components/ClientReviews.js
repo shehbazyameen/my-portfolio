@@ -2,11 +2,12 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { reviews } from '../constants/theme';
-import 'slick-carousel/slick/slick.css'; 
+import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-
 export const ClientReviews = ({ theme }) => {
+  const [expandedReviews, setExpandedReviews] = useState({});
+  const MAX_CHARACTERS = 300;
 
   const sliderSettings = {
     dots: true,
@@ -38,19 +39,15 @@ export const ClientReviews = ({ theme }) => {
       boxShadow: `0 8px 32px ${theme.shadow}`,
       backdropFilter: 'blur(12px)',
       border: `1px solid ${theme.border}`,
-      overflow: 'hidden', // Add this
-      '@media (max-width: 768px)': { 
+      '@media (max-width: 768px)': {
         padding: '1.5rem',
         borderRadius: '16px'
       }
     },
     sliderContainer: {
-      backgroundcolor:"red",
       position: 'relative',
       padding: '0 2rem',
-      '@media (max-width: 768px)': {
-        padding: 0
-      }
+      '@media (max-width: 768px)': { padding: 0 }
     },
     review: {
       background: 'rgba(15, 23, 42, 0.6)',
@@ -59,74 +56,91 @@ export const ClientReviews = ({ theme }) => {
       margin: '0 10px',
       boxShadow: `0 4px 12px ${theme.shadow}`,
       border: `1px solid ${theme.border}`,
-      position: 'relative',
       minHeight: '250px',
-      boxSizing: 'border-box', // Add this
-      minHeight: '360px', // Increase min-height for rating space,
-      '&::before': {
-        content: '"\\201C"',
-        position: 'absolute',
-        fontSize: '4rem',
-        color: theme.quoteColor,
-        top: '-1rem',
-        left: '0.5rem',
-        opacity: 0.5
-      },
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between'
+    },
+    clientHeader: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      marginBottom: '1rem'
+    },
+    statusDot: {
+      width: '12px',
+      height: '12px',
+      backgroundColor: '#25D366',
+      borderRadius: '50%',
+      flexShrink: 0
+    },
+    clientInfo: {
+      display: 'flex',
+      alignItems: 'baseline',
+      gap: '0.5rem',
+      flexWrap: 'wrap'
+    },
+    clientName: {
+      fontSize: '1.3rem',
+      fontWeight: 600,
+      color: theme.text,
+      margin: 0
+    },
+    projectText: {
+      fontSize: '1.1rem',
+      color: theme.text,
+      opacity: 0.9,
+      margin: 0
     },
     ratingContainer: {
       display: 'flex',
       alignItems: 'center',
       gap: '0.5rem',
-      marginTop: '0.5rem'
+      margin: '0.5rem 0'
     },
-     paragraph: {
-      fontSize: '1.1rem',
-      lineHeight: 1.7,
+    ratingText: {
+      fontSize: '1rem',
       color: theme.text,
-      opacity: 0.9,
-      '@media (max-width: 768px)': { fontSize: '1rem' }
+      opacity: 0.8,
+      marginLeft: '0.5rem'
     },
     reviewText: {
       fontSize: '1.1rem',
       lineHeight: 1.6,
       color: theme.text,
       opacity: 0.9,
-      minHeight: '80px',
-      fontWeight:500,
+      flexGrow: 1,
+      fontWeight: 400
     },
+
   };
 
   const renderStars = (rating) => {
     return (
-      <div style={{ display: 'flex', gap: '4px', }}>
+      <div style={{ display: 'flex', gap: '4px' }}>
         {[...Array(5)].map((_, index) => (
           <svg
             key={index}
-            width="25"
-            height="25"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
-            fill={index < rating ? theme.primary : '#e4e5e9'}
+            fill={index < 5 ? theme.primary : '#e4e5e9'}
             xmlns="http://www.w3.org/2000/svg"
           >
             <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
           </svg>
         ))}
+        <span style={styles.ratingText}>({rating.toFixed(1)})</span>
       </div>
     );
   };
-  const [expandedReviews, setExpandedReviews] = useState({});
-  const MAX_CHARACTERS = 300;
 
   const toggleExpand = (reviewId) => {
-    setExpandedReviews(prev => ({
-      ...prev,
-      [reviewId]: !prev[reviewId]
-    }));
+    setExpandedReviews(prev => ({ ...prev, [reviewId]: !prev[reviewId] }));
   };
 
   const renderText = (text, reviewId) => {
     const isExpanded = expandedReviews[reviewId];
-
     if (text.length <= MAX_CHARACTERS) return text;
 
     return (
@@ -158,24 +172,30 @@ export const ClientReviews = ({ theme }) => {
           {reviews.map((review) => (
             <div key={review.id}>
               <div style={styles.review}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <img
-                    src={review.platform}
-                    alt={review.platform}
-                    style={{ width: '50px'}}
-                  />
-                  <div>
-                    <p style={{ ...styles.paragraph, fontWeight: 600, fontSize:'1.2rem' }}>
-                      {review.client} - {review.project}
-                    </p>
-                    {renderStars(review.rating)}
-                  </div>
-                </div>
-                
+                <div>
 
-                <p style={styles.reviewText}>
-                  {renderText(review.text, review.id)}
-                </p>
+                  <div style={styles.clientHeader}>
+                    <img
+                      src={review.platform}
+                      alt={review.platform}
+                      style={{ width: '40px' }}
+                    />
+
+                    <div style={styles.clientInfo}>
+                      <h3 style={styles.clientName}>{review.client}</h3>
+                      <span style={styles.projectText}>{review.country}</span>
+                      <span style={styles.projectText}>| {review.project}</span>
+
+                    </div>
+
+                  </div>
+
+                  {renderStars(review.rating)}
+                  <p style={styles.reviewText}>
+                    “{renderText(review.text, review.id)}”
+                  </p>
+                </div>
+
               </div>
             </div>
           ))}
