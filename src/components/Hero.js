@@ -13,12 +13,12 @@ export const Hero = ({ theme, scrollTo }) => {
   const socialLinks = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shehbazyameen', icon: require('../assets/linkedin.png') },
     { name: 'GitHub', url: 'https://github.com/shehbazyameen', icon: require('../assets/github.png') },
-    
+
     { name: 'Instagram', url: 'https://www.instagram.com/shehbazyameen/', icon: require('../assets/instagram.png') },
     { name: 'Facebook', url: 'https://www.facebook.com/people/Shehbaz-Yameen/100010091083500/', icon: require('../assets/facebook.png') },
     { name: 'Twitter', url: 'https://x.com/43shehbaz', icon: require('../assets/twitter.png') },
 
-    
+
   ];
 
   const styles = {
@@ -111,11 +111,11 @@ export const Hero = ({ theme, scrollTo }) => {
     button: {
       background: `linear-gradient(135deg, ${theme.primary}, ${theme.secondary})`,
       border: 'none',
-      padding: '1rem 2.5rem',
+      padding: '1rem 1.2rem',
       borderRadius: '12px',
       color: '#fff',
       fontWeight: 600,
-      fontSize: '1.1rem',
+      fontSize: '1rem',
       cursor: 'pointer',
       boxShadow: `0 4px 20px ${theme.shadow}`,
       transition: 'all 0.3s ease',
@@ -124,7 +124,7 @@ export const Hero = ({ theme, scrollTo }) => {
         boxShadow: `0 6px 24px ${theme.shadow}`
       },
       '@media (max-width: 768px)': {
-        padding: '0.8rem 1.5rem',
+        padding: '0.8rem 1.2rem',
         fontSize: '1rem'
       }
     },
@@ -267,14 +267,53 @@ export const Hero = ({ theme, scrollTo }) => {
         </p>
 
         <div style={styles.buttonGroup}>
-          <button style={styles.button}>Hire Me</button>
+         
           <button
             onClick={() => scrollTo('portfolio')}
-          style={{ ...styles.button, background: 'none', border: `2px solid ${theme.primary}` }}
+            style={{ ...styles.button, background: 'none', border: `2px solid ${theme.primary}` }}
           >
             View Portfolio
           </button>
+
+         
+         
+
+
+         
+
+          <a
+
+            href="https://wa.me/+923100609111" // Replace with your WhatsApp number
+            target="_blank"
+            rel="noopener noreferrer"
+
+          >
+
+            <button
+              onClick={() => {
+
+              }}
+
+              style={{ ...styles.button, background: 'none', border: `2px solid ${theme.primary}` }}>Chat on WhatsApp</button>
+          </a>
           
+          <a
+
+            href={'https://www.upwork.com/freelancers/~010d76b63a789d9687'}
+            target="_blank"
+            rel="noopener noreferrer"
+
+          >
+
+            <button
+              onClick={() => {
+
+              }}
+
+              style={styles.button}>Hire Me</button>
+          </a>
+          
+
         </div>
       </div>
 
