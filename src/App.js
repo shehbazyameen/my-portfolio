@@ -32,6 +32,7 @@ const App = () => {
   };
 
   return (
+    <div style={containerStyleMain}>
     <div style={containerStyle}>
       <Header theme={darkTheme} scrollTo={scrollTo} />
 
@@ -71,6 +72,7 @@ const App = () => {
         scrollTo={scrollTo}
       />
     </div>
+    </div>
   );
 };
 
@@ -88,5 +90,14 @@ const containerStyle = {
     paddingTop: '70px'
   }
 };
+
+
+
+const containerStyleMain = {
+  background: 'linear-gradient(to bottom,rgb(2, 5, 35),rgb(57, 91, 133))',
+  color: '#f8fafc',
+};
+
+
 
 export default App;
