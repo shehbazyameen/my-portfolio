@@ -33,45 +33,31 @@ const App = () => {
 
   return (
     <div style={containerStyleMain}>
-    <div style={containerStyle}>
-      <Header theme={darkTheme} scrollTo={scrollTo} />
+      <div style={containerStyle}>
+        <Header theme={darkTheme} scrollTo={scrollTo} />
 
-      <div ref={heroRef}>
-        <Hero theme={darkTheme} 
+        <div ref={heroRef}>
+          <Hero theme={darkTheme} scrollTo={scrollTo} />
+        </div>
 
-          scrollTo={scrollTo}
-        />
+        <div ref={servicesRef}>
+          <Services theme={darkTheme} scrollTo={scrollTo} />
+        </div>
+
+        <div ref={portfolioRef}>
+          <Portfolio theme={darkTheme} scrollTo={scrollTo} />
+        </div>
+
+        <div ref={reviewsRef}>
+          <ClientReviews theme={darkTheme} scrollTo={scrollTo} />
+        </div>
+
+        <div ref={contactRef}>
+          <Contact theme={darkTheme} scrollTo={scrollTo} />
+        </div>
+
+        <Footer theme={darkTheme} scrollTo={scrollTo} />
       </div>
-
-      <div ref={servicesRef}>
-        <Services theme={darkTheme}
-          scrollTo={scrollTo}
-
-        />
-      </div>
-
-      <div ref={portfolioRef}>
-        <Portfolio theme={darkTheme}
-          scrollTo={scrollTo}
-        />
-      </div>
-
-      <div ref={reviewsRef}>
-        <ClientReviews theme={darkTheme}
-          scrollTo={scrollTo}
-        />
-      </div>
-
-      <div ref={contactRef}>
-        <Contact theme={darkTheme} 
-          scrollTo={scrollTo}
-        />
-      </div>
-
-      <Footer theme={darkTheme} 
-        scrollTo={scrollTo}
-      />
-    </div>
     </div>
   );
 };
@@ -85,19 +71,27 @@ const containerStyle = {
   margin: '0 auto',
   minHeight: '100vh',
   paddingTop: '80px', // Space for fixed header
+  boxSizing: 'border-box',
   '@media (max-width: 768px)': {
-    padding: '1rem',
+    padding: '1.5rem',
     paddingTop: '70px'
+  },
+  '@media (max-width: 480px)': {
+    padding: '1rem',
+    paddingTop: '60px'
+  },
+  '@media (max-width: 375px)': { // iPhone SE specific
+    padding: '0.75rem',
+    paddingTop: '55px'
   }
 };
 
-
-
 const containerStyleMain = {
-  background: 'linear-gradient(to bottom,rgb(2, 5, 35),rgb(57, 91, 133))',
+  background: 'linear-gradient(to bottom, rgb(2, 5, 35), rgb(57, 91, 133))',
   color: '#f8fafc',
+  minHeight: '100vh',
+  width: '100%',
+  overflowX: 'hidden' // Prevent horizontal scrolling
 };
-
-
 
 export default App;
