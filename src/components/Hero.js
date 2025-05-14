@@ -337,12 +337,7 @@ export const Hero = ({ theme, scrollTo }) => {
           style={styles.greetingText}
         />
 
-        <h1 style={styles.mainHeading}>Top-Rated Full Stack Developer</h1>
-
-        <p style={styles.subHeading}>
-          Delivering enterprise-grade solutions at startup-friendly rates
-        </p>
-
+        <h1 style={styles.mainHeading}>Top-Rated Freelance Developer</h1>
         <div style={styles.platformBadgesContainer}>
           <span style={styles.platformBadge}>
             <img src={upwork} alt="Upwork" style={{ width: '42px' }} />
@@ -358,8 +353,15 @@ export const Hero = ({ theme, scrollTo }) => {
           </span>
         </div>
 
+        <p style={styles.subHeading}>
+          Delivering agency-level quality at freelancer-friendly rates.
+        </p>
+
+       
+
         <p style={styles.statsText}>
-          50+ Projects Delivered | 98% Client Satisfaction | React & Node Expert
+
+        Expert Full-Stack Developer | Web & Mobile Apps | 50+ Projects Delivered | 100% Client Satisfaction
         </p>
 
         <div style={styles.ctaButtonGroup}>
