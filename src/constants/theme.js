@@ -39,7 +39,7 @@ export const reviews = [
     "rating": 5,
     "text": "I am delighted to write this testimonial for Shehbaz, who played a pivotal role in the development of our website project. From the initial planning stages to the final deployment, Shehbaz demonstrated exceptional skill, professionalism, and dedication. He brought our vision to life with his deep understanding of web development technologies and best practices. Shehbaz was instrumental in creating a user-friendly, responsive, and visually appealing website that exceeded our expectations. His ability to solve complex problems and adapt to changing requirements was truly impressive. Communication was one of Shehbaz's standout qualities. He kept us informed at every stage of the project, ensuring that we were always on the same page. His collaborative approach and willingness to listen to our feedback made the entire process smooth and enjoyable. In addition to his technical expertise, Shehbaz consistently met deadlines and delivered high-quality work. He went above and beyond to ensure that the final product not only met but exceeded our standards. I highly recommend Shehbaz for any web development projects. His skills, work ethic, and commitment to excellence make him an invaluable asset to any team."
   },
-  
+
   {
     id: 18,
     platform: require('../assets/peopleperhour.png'),
@@ -158,7 +158,7 @@ export const reviews = [
     "rating": 5,
     "text": "Excellent work! Stands behind his products."
   },
-  
+
   {
     "id": 14,
     platform: require('../assets/fiverr.png'),
@@ -195,53 +195,123 @@ export const reviews = [
     "rating": 5,
     "text": "One of the best!"
   },
-  
+
 ];
 
 // Example project structure
 export const projects = [
+  
+  {
+    id: 6,
+    type: 'mobile',
+    title: 'The Social Sports App',
+    tech: 'React Native App, Firebase',
+    image: require('../assets/Protfolio/The Social Sports App react native app.png'),
+    url: 'https://apps.apple.com/us/app/the-social-sports/id1622842833',
+  },
+
+  
+  {
+    id: 5,
+    type: 'wordpress', // Must match filter values ('web', 'mobile', 'design')
+    title: 'Animation & Creative Agency',
+    tech: 'WordPress',
+    image: require('../assets/Protfolio/Animation & Creative Agency.png'),
+    url: 'https://www.anideos.com/',
+
+  },
+  {
+    id: 6,
+    type: 'mobile',
+    title: 'ZoneUp - Experience Everything',
+    tech: 'React Native App, Firebase, Node',
+    image: require('../assets/Protfolio/ZoneUp Mobile App.png'),
+    url: 'https://apps.apple.com/us/app/zoneup-experience-everything/id6446952182',
+  },
+  {
+    id: 6,
+    type: 'mobile',
+    title: 'Encore - Buy & Sell Better',
+    tech: 'React Native, Firebase, Node.js',
+    image: require('../assets/Protfolio/EncoreMobileReactNative App.png'),
+    url: 'https://apps.apple.com/us/app/encore-buy-sell-better/id6446704805',
+  },
   {
     id: 1,
     type: 'web', // Must match filter values ('web', 'mobile', 'design')
-    title: 'E-commerce Platform',
-    tech: 'React, Node.js, MongoDB',
-    image: require('../assets/project1.jpg')
+    title: 'Blockchain SaaS',
+    tech: 'React.js, Node.js, MongoDB',
+    image: require('../assets/Protfolio/React.png'),
+    url: 'https://blockchain-kraft.vercel.app/',
+  },
+  
+  {
+    id: 3,
+    type: 'wordpress', // Must match filter values ('web', 'mobile', 'design')
+    title: 'SaaS / Business Growth',
+    tech: 'WordPress',
+    image: require('../assets/Protfolio/wordpressbu.png'),
+    url: 'https://buybusiness.hk/',
   },
   {
-    id: 2,
-    type: 'mobile',
-    title: 'Fitness App',
-    tech: 'React Native, Firebase',
-    image: require('../assets/project1.jpg')
+    id: 3,
+    type: 'wordpress', // Must match filter values ('web', 'mobile', 'design')
+    title: 'Creative Portfolio',
+    tech: 'WordPress',
+    image: require('../assets/Protfolio/splitarts.png'),
+    url: 'https://splitarts.com/',
   },
   {
-    id: 1,
+    id: 4,
     type: 'web', // Must match filter values ('web', 'mobile', 'design')
-    title: 'E-commerce Platform',
-    tech: 'React, Node.js, MongoDB',
-    image: '../assets/project1.jpg'
+    title: 'Booking Platform',
+    tech: 'React.js, Node.js, MongoDB',
+    image: require('../assets/Protfolio/reactjstable.png'),
+    url: 'https://tablenow.dk/',
   },
   {
-    id: 2,
-    type: 'mobile',
-    title: 'Fitness App',
-    tech: 'React Native, Firebase',
-    image: '/project2.jpg'
-  },
-  {
-    id: 1,
+    id: 4,
     type: 'web', // Must match filter values ('web', 'mobile', 'design')
-    title: 'E-commerce Platform',
-    tech: 'React, Node.js, MongoDB',
-    image: '/project1.jpg'
+    title: 'Wellness / Mental Health',
+    tech: 'Vue.js, Firebase, MongoDB',
+    image: require('../assets/Protfolio/believehypnosis.png'),
+    url: 'https://believehypnosis.app/',
+  },
+
+
+  {
+    id: 6,
+    type: 'web',
+    title: 'Beauty eCommerce Web',
+    tech: 'React.js, Node.js, MongoDB',
+    image: require('../assets/Protfolio/EverlyBeautyREactjs.png'),
+    url: 'https://www.everlybeauty.ca/',
   },
   {
     id: 2,
-    type: 'mobile',
-    title: 'Fitness App',
-    tech: 'React Native, Firebase',
-    image: '/project2.jpg'
+    type: 'shopify',
+    title: 'Shopify E-commerce',
+    tech: 'Shopify',
+    image: require('../assets/Protfolio/Shopify.png'),
+    url: 'https://gentlemensbands.com/',
   },
+  {
+    id: 2,
+    type: 'shopify',
+    title: 'Organic Farming / Health',
+    tech: 'Shopify',
+    image: require('../assets/Protfolio/truharvestfarmswordpressshopifydevelopment.png'),
+    url: 'https://truharvestfarms.com/',
+  },
+  {
+    id: 2,
+    type: 'shopify',
+    title: 'Shopify E-commerce',
+    tech: 'Shopify',
+    image: require('../assets/Protfolio/Health & Beauty.png'),
+    url: 'https://polishedlondon.com/',
+  },
+  
 
   // Add more projects with proper types
 ];

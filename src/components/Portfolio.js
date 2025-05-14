@@ -12,7 +12,7 @@ import fiverr from '../assets/fiverr.png';
 import peopleperhour from '../assets/peopleperhour.png';
 
 export const Portfolio = ({ theme }) => {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState('mobile');
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const sliderRef = useRef(null);
 
@@ -68,6 +68,7 @@ export const Portfolio = ({ theme }) => {
       '@media (max-width: 768px)': { padding: '1.5rem', borderRadius: '16px' }
     },
     filterButtons: {
+      
       display: 'flex',
       gap: '1rem',
       marginBottom: '2rem',
@@ -87,9 +88,9 @@ export const Portfolio = ({ theme }) => {
       },
     },
     activeFilter: {
-      background: `${theme.primary} !important`,
+      background: `${theme.primary}`,
       borderColor: `${theme.primary} !important`,
-      color: '#fff'
+      
     },
     projectCard: {
       background: 'rgba(15, 23, 42, 0.5)',
@@ -150,7 +151,7 @@ export const Portfolio = ({ theme }) => {
       <h2 style={styles.sectionTitle}>Portfolio</h2>
       
       <div style={styles.filterButtons}>
-        {['all', 'web', 'mobile', 'design'].map((filter) => (
+        {['mobile', 'web', 'wordpress','shopify'].map((filter) => (
           <button
             key={filter}
             style={{
@@ -193,6 +194,15 @@ export const Portfolio = ({ theme }) => {
                   <p style={{ color: theme.text, opacity: 0.8 }}>
                     {project.tech}
                   </p>
+
+                  <a
+
+                    href= {project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+
+                  >
+
                   <button style={{
                     background: `linear-gradient(135deg, ${theme.primary}, ${theme.secondary})`,
                     border: 'none',
@@ -201,9 +211,13 @@ export const Portfolio = ({ theme }) => {
                     color: '#fff',
                     marginTop: '1rem',
                     cursor: 'pointer'
-                  }}>
+                  }}
+                    
+                  >
                     View Details
+                    
                   </button>
+                  /</a>
                 </div>
               </div>
             ))}
