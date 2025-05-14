@@ -31,7 +31,7 @@ export const Hero = ({ theme, scrollTo }) => {
       alignItems: 'center',
       padding: '1rem',
       gap: '1.5rem',
-      minHeight: '100vh',
+      minHeight: '95vh',
       '@media (min-width: 768px)': {
         flexDirection: 'row',
         padding: '4rem 2rem',
@@ -212,7 +212,7 @@ export const Hero = ({ theme, scrollTo }) => {
       alignItems: 'center',
       margin: '0 auto', // Horizontal centering
       aspectRatio: '1/1',
-      marginBottom: '3rem',
+      marginBottom: '2rem',
       borderRadius: '60%',
       // overflow: 'hidden', // Keep this enabled
       '@media (min-width: 768px)': {
