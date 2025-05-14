@@ -8,11 +8,11 @@ export const Header = ({ theme, scrollTo }) => {
             top: 0,
             left: 0,
             right: 0,
-            background: theme.sectionBg,
-            backdropFilter: 'blur(10px)',
+           // background: theme.sectionBg,
+            // backdropFilter: 'blur(10px)',
             zIndex: 1000,
-            borderBottom: `1px solid ${theme.border}`,
-            padding: '0.5rem 0', // Reduced padding for mobile
+           // borderBottom: `1px solid ${theme.border}`,
+           // padding: '0.5rem 0', // Reduced padding for mobile
             width: '100%',
             boxSizing: 'border-box'
         },
