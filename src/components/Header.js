@@ -100,6 +100,12 @@ export const Header = ({ theme, scrollTo }) => {
                     </button>
                     <button
                         style={styles.navLink}
+                        onClick={() => scrollTo('VideoSection')}
+                    >
+                        About Me
+                    </button>
+                    <button
+                        style={styles.navLink}
                         onClick={() => scrollTo('contact')}
                     >
                         Contact

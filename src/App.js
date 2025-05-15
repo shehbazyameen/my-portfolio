@@ -7,6 +7,8 @@ import { Portfolio } from './components/Portfolio';
 import { ClientReviews } from './components/ClientReviews';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { VideoSection } from './components/VideoSection';
+
 import { darkTheme } from './constants/theme';
 
 const App = () => {
@@ -14,6 +16,7 @@ const App = () => {
   const servicesRef = useRef(null);
   const portfolioRef = useRef(null);
   const reviewsRef = useRef(null);
+  const VideoRef = useRef(null);
   const contactRef = useRef(null);
 
   const scrollTo = (section) => {
@@ -22,6 +25,8 @@ const App = () => {
       services: servicesRef,
       portfolio: portfolioRef,
       reviews: reviewsRef,
+
+      VideoSection: VideoRef,
       contact: contactRef
     };
 
@@ -51,6 +56,11 @@ const App = () => {
         <div ref={reviewsRef}>
           <ClientReviews theme={darkTheme} scrollTo={scrollTo} />
         </div>
+
+        <div ref={VideoRef}>
+          <VideoSection theme={darkTheme} scrollTo={scrollTo} />
+        </div>
+
 
         <div ref={contactRef}>
           <Contact theme={darkTheme} scrollTo={scrollTo} />
