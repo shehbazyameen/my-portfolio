@@ -4,63 +4,122 @@ import React from 'react';
 export const Services = ({ theme }) => {
   const styles = {
     section: {
-      marginBottom: '5rem',
-      padding: '2.5rem',
+      marginBottom: '4rem',
+      padding: '1.5rem',
       background: theme.sectionBg,
-      borderRadius: '24px',
-      boxShadow: `0 8px 32px ${theme.shadow}`,
+      borderRadius: '20px',
+      boxShadow: `0 4px 24px ${theme.shadow}`,
       backdropFilter: 'blur(12px)',
       border: `1px solid ${theme.border}`,
-      '@media (max-width: 768px)': { padding: '1.5rem', borderRadius: '16px' }
+      '@media (min-width: 375px)': {
+        padding: '2rem',
+        marginBottom: '5rem'
+      },
+      '@media (min-width: 768px)': {
+        padding: '2.5rem',
+        borderRadius: '24px'
+      }
     },
     sectionTitle: {
-      fontSize: '2.5rem',
+      fontSize: '1.75rem',
       fontWeight: 700,
-      marginBottom: '2rem',
+      marginBottom: '1.5rem',
       color: theme.text,
       position: 'relative',
+      lineHeight: 1.3,
       '&::after': {
         content: '""',
         position: 'absolute',
         bottom: '-0.5rem',
         left: 0,
-        width: '60px',
-        height: '4px',
+        width: '50px',
+        height: '3px',
         background: `linear-gradient(90deg, ${theme.primary}, ${theme.secondary})`,
         borderRadius: '2px',
       },
-      '@media (max-width: 768px)': { fontSize: '2rem' }
+      '@media (min-width: 375px)': {
+        fontSize: '2rem',
+        marginBottom: '2rem',
+        '&::after': {
+          width: '60px',
+          height: '4px'
+        }
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '2.5rem',
+        marginBottom: '2.5rem'
+      }
     },
     list: {
       listStyle: 'none',
       padding: 0,
       display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-      gap: '1.5rem',
-      '@media (max-width: 480px)': { gridTemplateColumns: '1fr' }
+      gridTemplateColumns: '1fr',
+      gap: '1.25rem',
+      '@media (min-width: 375px)': {
+        gap: '1.5rem'
+      },
+      '@media (min-width: 480px)': {
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))'
+      },
+      '@media (min-width: 768px)': {
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gap: '2rem'
+      }
     },
     listItem: {
       background: 'rgba(15, 23, 42, 0.5)',
-      borderRadius: '16px',
-      padding: '1.5rem',
-      boxShadow: `0 4px 12px ${theme.shadow}`,
+      borderRadius: '14px',
+      padding: '1.25rem',
+      boxShadow: `0 2px 8px ${theme.shadow}`,
       border: `1px solid ${theme.border}`,
       transition: 'all 0.3s ease',
-      '&:hover': {
-        transform: 'translateY(-4px)',
-        boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
+      '@media (prefers-reduced-motion: reduce)': {
+        transition: 'none'
       },
+      '&:hover': {
+        transform: 'translateY(-3px)',
+        boxShadow: `0 6px 18px ${theme.shadow}`,
+      },
+      '@media (min-width: 375px)': {
+        padding: '1.5rem',
+        borderRadius: '16px'
+      },
+      '@media (min-width: 768px)': {
+        transform: 'translateY(0)'
+      }
     },
     paragraph: {
-      fontSize: '1.1rem',
-      lineHeight: 1.7,
+      fontSize: '0.95rem',
+      lineHeight: 1.6,
       color: theme.text,
       opacity: 0.9,
-      '@media (max-width: 768px)': { fontSize: '1rem' }
+      margin: 0,
+      '@media (min-width: 375px)': {
+        fontSize: '1rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '1.1rem',
+        lineHeight: 1.7
+      }
     },
-
-    
+    serviceTitle: {
+      marginBottom: '0.6rem',
+      color: theme.text,
+      fontSize: '1.1rem',
+      fontWeight: 600,
+      lineHeight: 1.3,
+      '@media (min-width: 375px)': {
+        fontSize: '1.2rem',
+        marginBottom: '0.8rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '1.3rem'
+      }
+    }
   };
+
+  
 
 
   const services = [
@@ -109,11 +168,9 @@ export const Services = ({ theme }) => {
     <section style={styles.section}>
       <h2 style={styles.sectionTitle}>What I Offer: High-Demand Web & Mobile Solutions</h2>
       <ul style={styles.list}>
-         {services.map((service) => (
+        {services.map((service) => (
           <li key={service.title} style={styles.listItem}>
-            <h3 style={{ marginBottom: '0.8rem', color: theme.text }}>
-              {service.title}
-            </h3>
+            <h3 style={styles.serviceTitle}>{service.title}</h3>
             <p style={styles.paragraph}>{service.description}</p>
           </li>
         ))}
