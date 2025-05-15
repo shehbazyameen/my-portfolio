@@ -39,50 +39,216 @@ export const Contact = ({ theme }) => {
   };
 
   const styles = {
-    // ... keep previous styles
+    section: {
+      marginBottom: '4rem',
+      padding: '1.5rem',
+      background: theme.sectionBg,
+      borderRadius: '20px',
+      boxShadow: `0 4px 24px ${theme.shadow}`,
+      backdropFilter: 'blur(12px)',
+      border: `1px solid ${theme.border}`,
+      '@media (min-width: 375px)': {
+        padding: '2rem',
+        marginBottom: '5rem'
+      },
+      '@media (min-width: 768px)': {
+        padding: '2.5rem',
+        borderRadius: '24px'
+      }
+    },
+    sectionTitle: {
+      fontSize: '1.75rem',
+      fontWeight: 700,
+      marginBottom: '1.5rem',
+      color: theme.text,
+      position: 'relative',
+      '&::after': {
+        content: '""',
+        position: 'absolute',
+        bottom: '-0.5rem',
+        left: 0,
+        width: '50px',
+        height: '3px',
+        background: `linear-gradient(90deg, ${theme.primary}, ${theme.secondary})`,
+        borderRadius: '2px',
+      },
+      '@media (min-width: 375px)': {
+        fontSize: '2rem',
+        marginBottom: '2rem',
+        '&::after': {
+          width: '60px',
+          height: '4px'
+        }
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '2.5rem',
+        marginBottom: '2.5rem'
+      }
+    },
+    contactWrapper: {
+      display: 'grid',
+      gridTemplateColumns: '1fr',
+      gap: '2rem',
+      '@media (min-width: 768px)': {
+        gridTemplateColumns: '1fr 1fr',
+        gap: '3rem'
+      }
+    },
+    contactInfo: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '1rem',
+      '@media (min-width: 768px)': {
+        gap: '1.5rem'
+      }
+    },
+    contactItem: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.75rem',
+      padding: '1rem',
+      background: 'rgba(15, 23, 42, 0.3)',
+      borderRadius: '12px',
+      border: `1px solid ${theme.border}`,
+      '@media (min-width: 375px)': {
+        padding: '1.25rem',
+        gap: '1rem'
+      },
+      '@media (min-width: 768px)': {
+        padding: '1.5rem'
+      }
+    },
+    icon: {
+      width: '20px',
+      height: '20px',
+      '@media (min-width: 375px)': {
+        width: '24px',
+        height: '24px'
+      }
+    },
+    contactText: {
+      fontSize: '0.95rem',
+      color: theme.text,
+      margin: 0,
+      opacity: 0.9,
+      '@media (min-width: 375px)': {
+        fontSize: '1rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '1.1rem'
+      }
+    },
+    formContainer: {
+      background: 'rgba(15, 23, 42, 0.3)',
+      borderRadius: '12px',
+      padding: '1rem',
+      border: `1px solid ${theme.border}`,
+      position: 'relative',
+      boxSizing: 'border-box',
+      maxWidth: '100%',
+      overflow: 'hidden',
+      '@media (min-width: 375px)': {
+        padding: '1.5rem'
+      },
+      '@media (min-width: 768px)': {
+        padding: '2rem'
+      }
+    },
+
+    inputField: {
+      width: '100%',
+      padding: '0.7rem 1rem',
+      marginBottom: '1rem',
+      background: 'rgba(255,255,255,0.05)',
+      border: `1px solid ${theme.border}`,
+      borderRadius: '8px',
+      color: theme.text,
+      fontSize: '0.9rem',
+      transition: 'all 0.3s ease',
+      boxSizing: 'border-box', // Add this
+      '&:focus': {
+        outline: 'none',
+        borderColor: theme.primary,
+        boxShadow: `0 0 0 3px ${theme.primary}20`
+      },
+      '@media (min-width: 375px)': {
+        fontSize: '1rem',
+        marginBottom: '1.25rem',
+        padding: '0.8rem 1.2rem'
+      },
+      '@media (max-width: 320px)': {
+        padding: '0.6rem 0.9rem',
+        fontSize: '0.85rem'
+      }
+    },
+
+    // Add this new media query
+    '@media (max-width: 375px)': {
+      contactWrapper: {
+        gap: '1rem'
+      },
+      contactItem: {
+        padding: '0.8rem',
+        gap: '0.5rem'
+      },
+      contactText: {
+        fontSize: '0.9rem'
+      }
+    },
+    textArea: {
+      height: '100px',
+      resize: 'vertical',
+      '@media (min-width: 375px)': {
+        height: '120px'
+      }
+    },
+    submitButton: {
+      background: `linear-gradient(135deg, ${theme.primary}, ${theme.secondary})`,
+      border: 'none',
+      padding: '0.8rem 1.5rem',
+      borderRadius: '8px',
+      color: '#fff',
+      fontSize: '0.95rem',
+      fontWeight: 600,
+      cursor: 'pointer',
+      width: '100%',
+      transition: 'all 0.3s ease',
+      '&:hover': {
+        transform: 'translateY(-2px)',
+        boxShadow: `0 5px 15px ${theme.primary}30`
+      },
+      '@media (min-width: 375px)': {
+        fontSize: '1rem',
+        padding: '1rem 2rem'
+      }
+    },
     successMessage: {
       background: 'rgba(76, 175, 80, 0.1)',
       border: '1px solid #4CAF50',
       borderRadius: '8px',
-      padding: '1rem',
+      padding: '0.75rem',
       color: '#4CAF50',
       marginBottom: '1rem',
-      textAlign: 'center'
+      textAlign: 'center',
+      fontSize: '0.9rem',
+      '@media (min-width: 375px)': {
+        fontSize: '1rem',
+        padding: '1rem'
+      }
     },
     errorMessage: {
       background: 'rgba(244, 67, 54, 0.1)',
       border: '1px solid #f44336',
       borderRadius: '8px',
-      padding: '1rem',
+      padding: '0.75rem',
       color: '#f44336',
       marginBottom: '1rem',
-      textAlign: 'center'
-    },
-
-    formContainer: {
-      background: 'rgba(15, 23, 42, 0.3)',
-      borderRadius: '12px',
-      padding: '2rem',
-      border: `1px solid ${theme.border}`,
-      position: 'relative'
-    },
-  
-    textArea: {
-      height: '120px',
-      resize: 'vertical'
-    },
-    errorText: {
-      color: '#ff4444',
+      textAlign: 'center',
       fontSize: '0.9rem',
-      marginBottom: '1rem'
-    },
-    successMessage: {
-      background: 'rgba(76, 175, 80, 0.1)',
-      border: '1px solid #4CAF50',
-      borderRadius: '8px',
-      padding: '1rem',
-      color: '#4CAF50',
-      marginBottom: '1rem'
+      '@media (min-width: 375px)': {
+        fontSize: '1rem',
+        padding: '1rem'
+      }
     },
     loadingOverlay: {
       position: 'absolute',
@@ -98,115 +264,14 @@ export const Contact = ({ theme }) => {
     },
     spinner: {
       animation: 'spin 1s linear infinite',
-      width: '24px',
-      height: '24px'
-    },
-
-
-    section: {
-      marginBottom: '5rem',
-      padding: '2.5rem',
-      background: theme.sectionBg,
-      borderRadius: '24px',
-      boxShadow: `0 8px 32px ${theme.shadow}`,
-      backdropFilter: 'blur(12px)',
-      border: `1px solid ${theme.border}`,
-      '@media (max-width: 768px)': {
-        padding: '1.5rem',
-        borderRadius: '16px'
-      }
-    },
-    sectionTitle: {
-      fontSize: '2.5rem',
-      fontWeight: 700,
-      marginBottom: '2rem',
-      color: theme.text,
-      position: 'relative',
-      '&::after': {
-        content: '""',
-        position: 'absolute',
-        bottom: '-0.5rem',
-        left: 0,
-        width: '60px',
-        height: '4px',
-        background: `linear-gradient(90deg, ${theme.primary}, ${theme.secondary})`,
-        borderRadius: '2px',
-      },
-      '@media (max-width: 768px)': { fontSize: '2rem' }
-    },
-    contactWrapper: {
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gap: '3rem',
-      '@media (max-width: 768px)': {
-        gridTemplateColumns: '1fr',
-        gap: '2rem'
-      }
-    },
-    contactInfo: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '1.5rem'
-    },
-    contactItem: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: '1rem',
-      padding: '1.5rem',
-      background: 'rgba(15, 23, 42, 0.3)',
-      borderRadius: '12px',
-      border: `1px solid ${theme.border}`
-    },
-    icon: {
-      width: '24px',
-      height: '24px',
-    //  filter: 'brightness(0) invert(1)'
-    },
-    contactText: {
-      fontSize: '1.1rem',
-      color: theme.text,
-      margin: 0,
-      opacity: 0.9
-    },
-    
-    inputField: {
-      width: '90%',
-      padding: '0.8rem 1rem',
-      marginBottom: '1.5rem',
-      background: 'rgba(255,255,255,0.05)',
-      border: `1px solid ${theme.border}`,
-      borderRadius: '8px',
-      color: theme.text,
-      fontSize: '1rem',
-      transition: 'all 0.3s ease',
-      '&:focus': {
-        outline: 'none',
-        borderColor: theme.primary,
-        boxShadow: `0 0 0 3px ${theme.primary}20`
-      }
-    },
-    textArea: {
-      height: '120px',
-      resize: 'vertical'
-    },
-    submitButton: {
-      background: `linear-gradient(135deg, ${theme.primary}, ${theme.secondary})`,
-      border: 'none',
-      padding: '1rem 2rem',
-      borderRadius: '8px',
-      color: '#fff',
-      fontSize: '1rem',
-      fontWeight: 600,
-      cursor: 'pointer',
-      width: '100%',
-      transition: 'all 0.3s ease',
-      '&:hover': {
-        transform: 'translateY(-2px)',
-        boxShadow: `0 5px 15px ${theme.primary}30`
+      width: '20px',
+      height: '20px',
+      '@media (min-width: 375px)': {
+        width: '24px',
+        height: '24px'
       }
     }
   };
-
 
   return (
     <section style={styles.section}>

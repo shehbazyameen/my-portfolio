@@ -8,8 +8,8 @@ import fiverr from '../assets/fiverr.png';
 import peopleperhour from '../assets/peopleperhour.png';
 
 
-export const Hero = ({ theme, scrollTo }) => {
 
+export const Hero = ({ theme, scrollTo }) => {
   const socialLinks = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shehbaz-yameen/', icon: require('../assets/linkedin.png') },
     { name: 'GitHub', url: 'https://github.com/shehbazyameen', icon: require('../assets/github.png') },
@@ -20,317 +20,306 @@ export const Hero = ({ theme, scrollTo }) => {
 
   ];
 
-  const styles = {
-    greetingText: {
-      fontSize: '1.8rem',
-      color: theme.text,
-      margin: '0.5rem 0 1.5rem 0',
-      minHeight: '3rem',
 
-      '@media (max-width: 768px)': {
-        fontSize: '1.4rem',
-        textAlign: 'center'
-      }
-    },
+
+  const styles = {
+
+
     hero: {
       display: 'flex',
+      flexDirection: 'column-reverse',
       alignItems: 'center',
-      gap: '4rem',
-      padding: '2rem 1rem 4rem',
-      position: 'relative',
-
-      '@media (max-width: 768px)': {
-        flexDirection: 'column',
-        padding: '4rem 1rem 2rem',
-        gap: '2rem'
+      padding: '1rem',
+      gap: '1.5rem',
+      minHeight: '95vh',
+      '@media (min-width: 768px)': {
+        flexDirection: 'row',
+        padding: '4rem 2rem',
+        gap: '4rem',
+        maxWidth: '1440px',
+        margin: '0 auto'
       }
     },
+
     contentWrapper: {
-      flex: 1,
-      textAlign: 'left'
+      width: '100%',
+      textAlign: 'center',
+      '@media (min-width: 768px)': {
+        textAlign: 'left',
+        flex: 1
+      }
     },
 
+    greetingText: {
+      fontSize: '1.3rem',
+      color: theme.text,
+      margin: '0 0 0.8rem',
+      minHeight: '2rem',
+      lineHeight: 1.4,
+      '@media (min-width: 375px)': { fontSize: '1.4rem' },
+      '@media (min-width: 768px)': { fontSize: '1.8rem' }
+    },
 
-    heading: {
-      fontSize: '3.5rem',
+    mainHeading: {
+      fontSize: '1.8rem',
       fontWeight: 800,
       background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
       lineHeight: 1.2,
-      marginBottom: '1.5rem',
-      '@media (max-width: 768px)': {
-        fontSize: '2.2rem',
-        textAlign: 'center'
-      }
-    },
-    heading2: {
-      fontSize: '2.5rem',
-      fontWeight: 400,
-      background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      lineHeight: 1.2,
-      marginBottom: '1.5rem',
-      '@media (max-width: 768px)': {
-        fontSize: '2.2rem',
-        textAlign: 'center'
-      }
-    },
-    subheading: {
-      fontSize: '1.4rem',
-      color: theme.text,
-      marginBottom: '1rem',
-      fontWeight: 500,
-      opacity: 0.9,
-      '@media (max-width: 768px)': {
-        fontSize: '1.1rem',
-        textAlign: 'center'
-      }
-    },
-    tagline: {
-      fontSize: '1.1rem',
-      color: theme.text,
-      marginBottom: '2rem',
-      opacity: 0.8,
-      lineHeight: 1.6,
-      '@media (max-width: 768px)': {
-        fontSize: '1rem',
-        textAlign: 'center'
+      margin: '0 0 1rem',
+      '@media (min-width: 375px)': { fontSize: '2rem' },
+      '@media (min-width: 768px)': {
+        fontSize: '3.5rem',
+        lineHeight: 1.3
       }
     },
 
-    buttonGroup: {
-      display: 'flex',
-      gap: '1.5rem',
-      '@media (max-width: 768px)': {
-        justifyContent: 'center'
+    subHeading: {
+      fontSize: '1.1rem',
+      color: theme.text,
+      margin: '0 0 1.5rem',
+      lineHeight: 1.5,
+      '@media (min-width: 375px)': { fontSize: '1.2rem' },
+      '@media (min-width: 768px)': {
+        fontSize: '1.5rem',
+        margin: '0 0 2rem'
       }
     },
-    button: {
+
+    platformBadgesContainer: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: '0.3rem',
+      justifyContent: 'center',
+      margin: '1rem 0',
+      '@media (min-width: 375px)': {
+        gap: '0.5rem'
+      },
+      '@media (min-width: 768px)': {
+        gap: '0.8rem',
+        margin: '1.5rem 0'
+      }
+    },
+
+    // Updated platformBadge styles
+    platformBadge: {
+      padding: '0.4rem 0.8rem',
+      borderRadius: '6px',
+      background: theme.badgeBg,
+      color: theme.badgeText,
+      fontSize: '0.7rem',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '0.3rem',
+      whiteSpace: 'nowrap',
+      flexShrink: 0,
+      '& img': {
+        width: '24px',
+        height: '24px',
+        objectFit: 'contain'
+      },
+      '@media (min-width: 325px)': {
+        fontSize: '0.75rem',
+        padding: '0.5rem 0.9rem',
+        '& img': {
+          width: '26px',
+          height: '26px'
+        }
+      },
+      '@media (min-width: 375px)': {
+        fontSize: '0.8rem',
+        padding: '0.6rem 1rem',
+        '& img': {
+          width: '28px',
+          height: '28px'
+        }
+      },
+      '@media (min-width: 425px)': {
+        fontSize: '0.85rem',
+        '& img': {
+          width: '30px',
+          height: '30px'
+        }
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '0.9rem',
+        padding: '0.8rem 1.2rem',
+        '& img': {
+          width: '36px',
+          height: '36px'
+        }
+      },
+      '@media (min-width: 1024px)': {
+        fontSize: '1rem',
+        '& img': {
+          width: '40px',
+          height: '40px'
+        }
+      }
+    },
+
+    ctaButtonGroup: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '1rem',
+      marginTop: '1.5rem',
+      '@media (min-width: 375px)': { gap: '1.2rem' },
+      '@media (min-width: 768px)': {
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        marginTop: '2rem'
+      }
+    },
+
+    primaryButton: {
       background: `linear-gradient(135deg, ${theme.primary}, ${theme.secondary})`,
       border: 'none',
-      padding: '1rem 1.2rem',
-      borderRadius: '12px',
+      padding: '0.8rem 1.2rem',
+      borderRadius: '8px',
       color: '#fff',
       fontWeight: 600,
-      fontSize: '1rem',
+      fontSize: '0.95rem',
+      width: '100%',
+      maxWidth: '280px',
+      margin: '0 auto',
       cursor: 'pointer',
-      boxShadow: `0 4px 20px ${theme.shadow}`,
-      transition: 'all 0.3s ease',
-      '&:hover': {
-        transform: 'translateY(-3px)',
-        boxShadow: `0 6px 24px ${theme.shadow}`
-      },
-      '@media (max-width: 768px)': {
-        padding: '0.8rem 1.2rem',
+      transition: 'transform 0.2s ease',
+      '&:active': { transform: 'scale(0.98)' },
+      '@media (min-width: 768px)': {
+        width: 'auto',
+        margin: '0',
+        padding: '1rem 1.8rem',
         fontSize: '1rem'
       }
     },
-    platformBadges: {
-      display: 'flex',
-      gap: '1rem',
-      margin: '2rem 0',
-      '@media (max-width: 768px)': {
-        justifyContent: 'center'
-      }
+
+    secondaryButton: {
+      background: 'none',
+      border: `2px solid ${theme.primary}`,
+      color: theme.text,
+      '&:active': { background: theme.primary + '15' }
     },
-    badge: {
-      display: 'inline-block',
-      padding: '0.8rem 1.2rem',
-      borderRadius: '8px',
-      background: theme.badgeBg,
-      color: theme.badgeText,
-      fontWeight: 500,
-      fontSize: '0.9rem',
-      display: 'flex',
+
+
+    profileImageContainer: {
+     
+      width: '100%',
+      maxWidth: '280px',
+      position: 'relative',
+      display: 'flex', // Added to enable flexbox
+      justifyContent: 'center',
       alignItems: 'center',
-      gap: '0.2rem'
-    },
-
-    imageWrapper: {
-      flex: 1,
-      display: 'flex',
-      justifyContent: 'flex-end',
-      position: 'relative',
-      '@media (max-width: 768px)': {
-        justifyContent: 'center'
+      margin: '0 auto', // Horizontal centering
+      aspectRatio: '1/1',
+      marginBottom: '2rem',
+      borderRadius: '60%',
+      // overflow: 'hidden', // Keep this enabled
+      '@media (min-width: 768px)': {
+        maxWidth: '450px'
       }
     },
-    image: {
-      width: '450px',
-      height: '450px',
+
+
+
+
+    profileImage: {
+      width: '100%',
+      height: '100%',
+      borderRadius: '50%',
+      boxShadow: `0 15px 30px ${theme.primary}40`,
+      border: `3px solid ${theme.primary}30`,
       objectFit: 'cover',
-      borderRadius: '50%',
-      boxShadow: `
-        0 25px 50px -12px ${theme.primary}40,
-        0 0 15px ${theme.primary}20
-      `,
-      transform: 'translateY(-10px)',
-      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-      cursor: 'pointer',
-      position: 'relative',
-      '@media (max-width: 768px)': {
-        width: '240px',
-        height: '240px'
-      },
+      objectPosition: 'center center', // Ensures face stays centered
+      transition: 'transform 0.3s ease',
       '&:hover': {
-        transform: 'translateY(-15px)',
-        boxShadow: `
-          0 35px 60px -12px ${theme.primary}50,
-          0 0 25px ${theme.primary}30
-        `
+        transform: 'scale(1.05)'
       }
     },
 
-    socialLinksContainer: {
-      position: 'absolute',
-      right: '-40px',
-      top: '50%',
-      transform: 'translateY(-50%)',
+
+
+
+    socialLinksWrapper: {
       display: 'flex',
-      flexDirection: 'column',
-      gap: '1.5rem',
-      '@media (max-width: 768px)': {
-        position: 'static',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop: '2rem',
-        transform: 'none'
+      justifyContent: 'center',
+      gap: '0.8rem',
+      marginTop: '1.5rem',
+      marginBottom: '1.5rem',
+      '@media (min-width: 768px)': {
+        position: 'absolute',
+        right: '-50px',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        flexDirection: 'column',
+        gap: '1rem',
+        marginTop: 0,
       }
     },
-    socialLink: {
-      width: '70px',
-      height: '70px',
+
+    socialLinkItem: {
+      width: '42px',
+      height: '42px',
       borderRadius: '50%',
-      background: 'rgba(255,255,255,0.1)',
+      background: theme.socialBg,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      transition: 'all 0.3s ease',
-      '&:hover': {
-        background: theme.primary,
-        transform: 'scale(1.1)'
+      transition: 'all 0.2s ease',
+      background: 'rgba(255,255,255,0.1)',
+      '&:active': { transform: 'scale(0.95)' },
+      '@media (min-width: 768px)': {
+        width: '50px',
+        height: '50px',
+        '&:hover': { background: theme.primary }
       }
     },
+
     socialIcon: {
-      width: '44px',
-      height: '44px',
+      width: '30px',
+      height: '30px',
+      '@media (min-width: 768px)': {
+        width: '24px',
+        height: '24px'
+      }
+    },
+
+    statsText: {
+      fontSize: '0.9rem',
+      color: theme.text,
+      margin: '1rem 0',
+      lineHeight: 1.6,
+      opacity: 0.9,
+      '@media (min-width: 375px)': { fontSize: '1rem' },
+      '@media (min-width: 768px)': { fontSize: '1.1rem' }
     }
-
-
   };
 
   return (
     <section style={styles.hero}>
 
+
+
       <div style={styles.contentWrapper}>
 
-        {/* Animated Greeting */}
-        <TypeAnimation
-          sequence={[
-            'Hi there! 👋',
-            1000,
-            'Hi there! I\'m Shehbaz Yameen 👋',
-            1000,
-
-          ]}
-          wrapper="div"
-          cursor={true}
-          repeat={Infinity}
-          style={styles.greetingText}
-        />
-
-        <h1 style={styles.heading}>Top-Rated Freelance Developer.</h1>
-        <div style={styles.platformBadges}>
-          <span style={styles.badge}>
-            <img src={upwork} alt="Upwork" style={{ width: '40px' }} />
-            Top Rated
-          </span>
-          <span style={styles.badge}>
-            <img src={fiverr} alt="Fiverr" style={{ width: '42px' }} />
-            Level 2 Seller
-          </span>
-          <span style={styles.badge}>
-            <img src={peopleperhour} alt="peopleperhour" style={{ width: '42px' }} />
-            Level 5 Seller
-          </span>
-        </div>
-
-        <h2 style={styles.heading2}>
-          Delivering agency-level quality at freelancer-friendly rates.</h2>
-
-        <p style={styles.subheading}>Full-Stack Developer | Web & Mobile Apps | 50+ Projects Delivered</p>
-        <p style={styles.tagline}>
-          Creating seamless, user-friendly websites and apps with strong, reliable backends.
-        </p>
-
-        <div style={styles.buttonGroup}>
-         
-          <button
-            onClick={() => scrollTo('portfolio')}
-            style={{ ...styles.button, background: 'none', border: `2px solid ${theme.primary}` }}
-          >
-            View Portfolio
-          </button>
-        
-
-          <a
-
-            href="https://wa.me/+923100609111" // Replace with your WhatsApp number
-            target="_blank"
-            rel="noopener noreferrer"
-
-          >
-
-            <button
-              onClick={() => {
-
-              }}
-
-              style={{ ...styles.button, background: 'none', border: `2px solid ${theme.primary}` }}>Chat on WhatsApp</button>
-          </a>
-
-          <a
-
-            href={'https://www.upwork.com/freelancers/~010d76b63a789d9687'}
-            target="_blank"
-            rel="noopener noreferrer"
-
-          >
-
-            <button
-              onClick={() => {
-
-              }}
-
-              style={styles.button}>Hire Me</button>
-          </a>
-          
+        <div style={styles.profileImageContainer}>
+          <img
+            src={dummyImage}
+            alt="Shehbaz Yameen"
+            style={styles.profileImage}
+          />
 
         </div>
-      </div>
-
-      <div style={styles.imageWrapper}>
-        <img
-          src={dummyImage}
-          alt="Shehbaz Yameen"
-          style={{
-            ...styles.image,
-            border: 'none', // Remove any existing border
-          }}
-        />
 
 
-        {/* Social Links */}
-        <div style={styles.socialLinksContainer}>
+        <div style={styles.socialLinksWrapper}>
           {socialLinks.map((link) => (
             <a
               key={link.name}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              style={styles.socialLink}
+              style={styles.socialLinkItem}
             >
               <img
                 src={link.icon}
@@ -340,9 +329,58 @@ export const Hero = ({ theme, scrollTo }) => {
             </a>
           ))}
         </div>
+        <TypeAnimation
+          sequence={['Hi there! 👋', 1000, "Hi! I'm Shehbaz 👋", 1000]}
+          wrapper="div"
+          cursor={true}
+          repeat={Infinity}
+          style={styles.greetingText}
+        />
 
+        <h1 style={styles.mainHeading}>Top-Rated Freelance Developer</h1>
+        <div style={styles.platformBadgesContainer}>
+          <span style={styles.platformBadge}>
+            <img src={upwork} alt="Upwork" style={{ width: '42px' }} />
+            <span style={{ display: 'inline-block' }}>Top Rated</span>
+          </span>
+          <span style={styles.platformBadge}>
+            <img src={fiverr} alt="Fiverr" style={{ width: '42px' }} />
+            <span style={{ display: 'inline-block' }}>Level 2</span>
+          </span>
+          <span style={styles.platformBadge}>
+            <img src={peopleperhour} alt="PPH" style={{ width: '42px' }} />
+            <span style={{ display: 'inline-block' }}>Level 5</span>
+          </span>
+        </div>
+
+        <p style={styles.subHeading}>
+          Delivering agency-level quality at freelancer-friendly rates.
+        </p>
+
+       
+
+        <p style={styles.statsText}>
+
+        Expert Full-Stack Developer | Web & Mobile Apps | 50+ Projects Delivered | 100% Client Satisfaction
+        </p>
+
+        <div style={styles.ctaButtonGroup}>
+          <button
+            style={{ ...styles.primaryButton, ...styles.secondaryButton }}
+            onClick={() => scrollTo('portfolio')}
+          >
+            View Portfolio
+          </button>
+          <a href="https://wa.me/+923100609111" style={{ textDecoration: 'none' }}>
+            <button style={{ ...styles.primaryButton, ...styles.secondaryButton }}>
+              WhatsApp Chat
+            </button>
+          </a>
+          <a href="https://www.upwork.com/freelancers/~010d76b63a789d9687" style={{ textDecoration: 'none' }}>
+            <button style={styles.primaryButton}>Hire Me Now</button>
+          </a>
+        </div>
       </div>
-
 
 
     </section>
