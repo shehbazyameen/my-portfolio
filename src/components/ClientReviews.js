@@ -1,4 +1,3 @@
-// src/components/ClientReviews.js
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 import { reviews } from '../constants/theme';
@@ -26,71 +25,112 @@ export const ClientReviews = ({ theme }) => {
           slidesToScroll: 1,
           arrows: false
         }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          dots: false
+        }
       }
     ]
   };
 
   const styles = {
     section: {
-      marginBottom: '5rem',
-      padding: '2.5rem',
+      marginBottom: '4rem',
+      padding: '1.5rem',
       background: theme.sectionBg,
-      borderRadius: '24px',
-      boxShadow: `0 8px 32px ${theme.shadow}`,
+      borderRadius: '20px',
+      boxShadow: `0 4px 24px ${theme.shadow}`,
       backdropFilter: 'blur(12px)',
       border: `1px solid ${theme.border}`,
-      '@media (max-width: 768px)': {
-        padding: '1.5rem',
-        borderRadius: '16px'
+      '@media (min-width: 375px)': {
+        padding: '2rem',
+        marginBottom: '5rem'
+      },
+      '@media (min-width: 768px)': {
+        padding: '2.5rem',
+        borderRadius: '24px'
       }
     },
     sliderContainer: {
       position: 'relative',
-      padding: '0 2rem',
-      '@media (max-width: 768px)': { padding: 0 }
+      padding: '0 1rem',
+      '@media (min-width: 375px)': {
+        padding: '0 1.5rem'
+      },
+      '@media (min-width: 768px)': {
+        padding: '0 2rem'
+      }
     },
     review: {
       background: 'rgba(15, 23, 42, 0.6)',
-      padding: '2rem',
+      padding: '1.5rem',
       borderRadius: '16px',
-      margin: '0 10px',
+      margin: '0 8px',
       boxShadow: `0 4px 12px ${theme.shadow}`,
       border: `1px solid ${theme.border}`,
-      minHeight: '250px',
+      minHeight: '220px',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-between'
+      justifyContent: 'space-between',
+      '@media (min-width: 375px)': {
+        margin: '0 10px',
+        padding: '2rem',
+        minHeight: '250px'
+      }
     },
     clientHeader: {
       display: 'flex',
       alignItems: 'center',
       gap: '0.5rem',
-      marginBottom: '1rem'
+      marginBottom: '0.8rem',
+      flexWrap: 'wrap'
     },
     statusDot: {
-      width: '12px',
-      height: '12px',
+      width: '10px',
+      height: '10px',
       backgroundColor: '#25D366',
       borderRadius: '50%',
-      flexShrink: 0
+      flexShrink: 0,
+      '@media (min-width: 375px)': {
+        width: '12px',
+        height: '12px'
+      }
     },
     clientInfo: {
       display: 'flex',
       alignItems: 'baseline',
       gap: '0.5rem',
-      flexWrap: 'wrap'
+      flexWrap: 'wrap',
+      rowGap: '0.25rem'
     },
     clientName: {
-      fontSize: '1.3rem',
+      fontSize: '1.1rem',
       fontWeight: 600,
       color: theme.text,
-      margin: 0
+      margin: 0,
+      '@media (min-width: 375px)': {
+        fontSize: '1.2rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '1.3rem'
+      }
     },
     projectText: {
-      fontSize: '1.1rem',
+      fontSize: '0.9rem',
       color: theme.text,
       opacity: 0.9,
-      margin: 0
+      margin: 0,
+      '@media (min-width: 375px)': {
+        fontSize: '1rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '1.1rem'
+      }
     },
     ratingContainer: {
       display: 'flex',
@@ -99,20 +139,42 @@ export const ClientReviews = ({ theme }) => {
       margin: '0.5rem 0'
     },
     ratingText: {
-      fontSize: '1rem',
+      fontSize: '0.9rem',
       color: theme.text,
       opacity: 0.8,
-      marginLeft: '0.5rem'
+      marginLeft: '0.5rem',
+      '@media (min-width: 375px)': {
+        fontSize: '1rem'
+      }
     },
     reviewText: {
-      fontSize: '1.1rem',
+      fontSize: '0.95rem',
       lineHeight: 1.6,
       color: theme.text,
       opacity: 0.9,
       flexGrow: 1,
-      fontWeight: 400
+      fontWeight: 400,
+      '@media (min-width: 375px)': {
+        fontSize: '1rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '1.1rem'
+      }
     },
-
+    expandButton: {
+      background: 'none',
+      border: 'none',
+      color: theme.primary,
+      cursor: 'pointer',
+      padding: '4px 6px',
+      marginLeft: '4px',
+      fontWeight: 600,
+      fontSize: '0.9rem',
+      '@media (min-width: 375px)': {
+        fontSize: '1rem',
+        padding: '0 4px'
+      }
+    }
   };
 
   const renderStars = (rating) => {
@@ -173,29 +235,28 @@ export const ClientReviews = ({ theme }) => {
             <div key={review.id}>
               <div style={styles.review}>
                 <div>
-
                   <div style={styles.clientHeader}>
                     <img
                       src={review.platform}
                       alt={review.platform}
-                      style={{ width: '40px' }}
+                      style={{
+                        width: '32px',
+                        '@media (min-width: 375px)': {
+                          width: '40px'
+                        }
+                      }}
                     />
-
                     <div style={styles.clientInfo}>
                       <h3 style={styles.clientName}>{review.client}</h3>
                       <span style={styles.projectText}>{review.country}</span>
                       <span style={styles.projectText}>| {review.project}</span>
-
                     </div>
-
                   </div>
-
                   {renderStars(review.rating)}
                   <p style={styles.reviewText}>
                     “{renderText(review.text, review.id)}”
                   </p>
                 </div>
-
               </div>
             </div>
           ))}
