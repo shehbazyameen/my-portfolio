@@ -60,61 +60,110 @@ export const Services = ({ theme }) => {
         gap: '1.5rem'
       },
       '@media (min-width: 480px)': {
-        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))'
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))'
       },
       '@media (min-width: 768px)': {
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
         gap: '2rem'
       }
     },
+
     listItem: {
-      background: 'rgba(15, 23, 42, 0.5)',
-      borderRadius: '14px',
-      padding: '1.25rem',
-      boxShadow: `0 2px 8px ${theme.shadow}`,
+      background: 'rgba(15, 23, 42, 0.3)',
+      borderRadius: '16px',
+      padding: '1.5rem',
+      position: 'relative',
+      overflow: 'hidden',
+      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
       border: `1px solid ${theme.border}`,
-      transition: 'all 0.3s ease',
-      '@media (prefers-reduced-motion: reduce)': {
-        transition: 'none'
-      },
+      boxShadow: `0 4px 24px ${theme.shadow}20`,
+
       '&:hover': {
-        transform: 'translateY(-3px)',
-        boxShadow: `0 6px 18px ${theme.shadow}`,
+        transform: 'translateY(-5px)',
+        boxShadow: `0 8px 32px ${theme.primary}30`,
+        '&::before': {
+          opacity: 1
+        }
       },
-      '@media (min-width: 375px)': {
-        padding: '1.5rem',
-        borderRadius: '16px'
+
+      '&::before': {
+        content: '""',
+        position: 'absolute',
+        top: '-50%',
+        left: '-50%',
+        width: '200%',
+        height: '200%',
+        background: `linear-gradient(45deg, 
+          ${theme.primary}20, 
+          ${theme.secondary}20, 
+          ${theme.primary}20)`,
+        transform: 'rotate(45deg)',
+        opacity: 0,
+        transition: 'opacity 0.6s ease'
       },
-      '@media (min-width: 768px)': {
-        transform: 'translateY(0)'
+
+      '@media (max-width: 768px)': {
+        '&:hover': {
+          transform: 'none'
+        }
       }
     },
+
+    serviceTitle: {
+      marginBottom: '1rem',
+      color: theme.text,
+      fontSize: '1.25rem',
+      fontWeight: 700,
+      position: 'relative',
+      background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      display: 'inline-block',
+      '@media (min-width: 375px)': {
+        fontSize: '1.3rem'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '1.4rem'
+      }
+    },
+
     paragraph: {
-      fontSize: '0.95rem',
-      lineHeight: 1.6,
+      fontSize: '1rem',
+      lineHeight: 1.7,
       color: theme.text,
       opacity: 0.9,
+      position: 'relative',
       margin: 0,
+      paddingLeft: '1.5rem',
+
+      '&::before': {
+        content: '"»"',
+        position: 'absolute',
+        left: 0,
+        color: theme.primary,
+        fontWeight: 700
+      },
+
       '@media (min-width: 375px)': {
-        fontSize: '1rem'
+        fontSize: '1.05rem'
       },
       '@media (min-width: 768px)': {
-        fontSize: '1.1rem',
-        lineHeight: 1.7
+        fontSize: '1.1rem'
       }
     },
-    serviceTitle: {
-      marginBottom: '0.6rem',
-      color: theme.text,
-      fontSize: '1.1rem',
-      fontWeight: 600,
-      lineHeight: 1.3,
-      '@media (min-width: 375px)': {
-        fontSize: '1.2rem',
-        marginBottom: '0.8rem'
-      },
-      '@media (min-width: 768px)': {
-        fontSize: '1.3rem'
+
+    // Add for Additional Services bullet points
+    serviceList: {
+      paddingLeft: '1.5rem',
+      margin: '0.5rem 0',
+      '& li': {
+        position: 'relative',
+        paddingLeft: '1rem',
+        '&::before': {
+          content: '"•"',
+          position: 'absolute',
+          left: 0,
+          color: theme.primary
+        }
       }
     }
   };
@@ -155,11 +204,13 @@ export const Services = ({ theme }) => {
 
     {
       title: 'Additional Services',
-      description: `
-        • UI/UX Design (Figma, Prototyping)\n
-        • Branding (Logos, Visual Identity)\n
-        • Digital Marketing (Social Media Strategy)
-      `
+      description: (
+        <ul style={styles.serviceList}>
+          <li>UI/UX Design (Figma, Prototyping)</li>
+          <li>Branding (Logos, Visual Identity)</li>
+          <li>Digital Marketing (Social Media Strategy)</li>
+        </ul>
+      )
     }
   ];
 
