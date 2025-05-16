@@ -1,231 +1,240 @@
-// src/components/Services.js
 import React from 'react';
 
 export const Services = ({ theme }) => {
   const styles = {
     section: {
       marginBottom: '4rem',
-      padding: '1.5rem',
+      padding: '1rem',
       background: theme.sectionBg,
       borderRadius: '20px',
       boxShadow: `0 4px 24px ${theme.shadow}`,
       backdropFilter: 'blur(12px)',
       border: `1px solid ${theme.border}`,
       '@media (min-width: 375px)': {
-        padding: '2rem',
-        marginBottom: '5rem'
-      },
-      '@media (min-width: 768px)': {
-        padding: '2.5rem',
-        borderRadius: '24px'
+        padding: '1.5rem', 
       }
     },
     sectionTitle: {
-      fontSize: '1.75rem',
+      fontSize: '2.5rem',
       fontWeight: 700,
-      marginBottom: '1.5rem',
+      marginBottom: '1.75rem',
       color: theme.text,
       position: 'relative',
       lineHeight: 1.3,
-      '&::after': {
-        content: '""',
-        position: 'absolute',
-        bottom: '-0.5rem',
-        left: 0,
-        width: '50px',
-        height: '3px',
-        background: `linear-gradient(90deg, ${theme.primary}, ${theme.secondary})`,
-        borderRadius: '2px',
-      },
-      '@media (min-width: 375px)': {
-        fontSize: '2rem',
-        marginBottom: '2rem',
-        '&::after': {
-          width: '60px',
-          height: '4px'
-        }
-      },
-      '@media (min-width: 768px)': {
-        fontSize: '2.5rem',
-        marginBottom: '2.5rem'
-      }
     },
     list: {
-      listStyle: 'none',
-      padding: 0,
       display: 'grid',
-      gridTemplateColumns: '1fr',
-      gap: '1.25rem',
-      '@media (min-width: 375px)': {
-        gap: '1.5rem'
-      },
-      '@media (min-width: 480px)': {
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))'
-      },
-      '@media (min-width: 768px)': {
-        gap: '2rem'
-      }
+      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gap: '1rem',
     },
-
     listItem: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
       background: 'rgba(15, 23, 42, 0.3)',
       borderRadius: '16px',
-      padding: '1.5rem',
+      padding: '1rem 1rem 1rem 3rem',
       position: 'relative',
       overflow: 'hidden',
-      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
       border: `1px solid ${theme.border}`,
       boxShadow: `0 4px 24px ${theme.shadow}20`,
-
+      minHeight: '260px',
+      transition: 'all 0.4s ease',
       '&:hover': {
         transform: 'translateY(-5px)',
         boxShadow: `0 8px 32px ${theme.primary}30`,
-        '&::before': {
-          opacity: 1
-        }
-      },
-
-      '&::before': {
-        content: '""',
-        position: 'absolute',
-        top: '-50%',
-        left: '-50%',
-        width: '200%',
-        height: '200%',
-        background: `linear-gradient(45deg, 
-          ${theme.primary}20, 
-          ${theme.secondary}20, 
-          ${theme.primary}20)`,
-        transform: 'rotate(45deg)',
-        opacity: 0,
-        transition: 'opacity 0.6s ease'
-      },
-
-      '@media (max-width: 768px)': {
-        '&:hover': {
-          transform: 'none'
-        }
       }
     },
-
+    techIcons: {
+      display: 'flex',
+      gap: '0.5rem',
+      flexWrap: 'wrap',
+      marginBottom: '1rem',
+    },
+    techLogo: {
+      width: '42px',
+      height: '42px',
+      objectFit: 'contain',
+      transition: 'transform 0.3s ease',
+      '&:hover': {
+        transform: 'scale(1.2)'
+      }
+    },
     serviceTitle: {
       marginBottom: '1rem',
       color: theme.text,
-      fontSize: '1.25rem',
+      fontSize: '1.4rem',
       fontWeight: 700,
-      position: 'relative',
       background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
       WebkitBackgroundClip: 'text',
       WebkitTextFillColor: 'transparent',
-      display: 'inline-block',
-      '@media (min-width: 375px)': {
-        fontSize: '1.3rem'
-      },
-      '@media (min-width: 768px)': {
-        fontSize: '1.4rem'
-      }
     },
-
     paragraph: {
-      fontSize: '1rem',
-      lineHeight: 1.7,
+      //paddingLeft: '1rem',
+      fontSize: '1.1rem',
+      lineHeight: 1.6,
       color: theme.text,
       opacity: 0.9,
-      position: 'relative',
-      margin: 0,
-      paddingLeft: '1.5rem',
-
-      '&::before': {
-        content: '"»"',
-        position: 'absolute',
-        left: 0,
-        color: theme.primary,
-        fontWeight: 700
-      },
-
-      '@media (min-width: 375px)': {
-        fontSize: '1.05rem'
-      },
-      '@media (min-width: 768px)': {
-        fontSize: '1.1rem'
-      }
     },
-
-    // Add for Additional Services bullet points
     serviceList: {
-      paddingLeft: '1.5rem',
-      margin: '0.5rem 0',
-      '& li': {
-        position: 'relative',
-        paddingLeft: '1rem',
-        '&::before': {
-          content: '"•"',
-          position: 'absolute',
-          left: 0,
-          color: theme.primary
-        }
-      }
+      paddingLeft: '1rem',
+      lineHeight: 1.6,
+      color: theme.text,
+      opacity: 0.9,
     }
   };
-
-  
-
 
   const services = [
     {
       title: 'Mobile App Development',
-      description: 'iOS & Android apps using React Native — modern, fast & fully deployed to App Store & Google Play.'
+      description: (
+        <ul style={styles.serviceList}>
+          <li>Cross-platform (iOS & Android)</li>
+          <li>Built with React Native</li>
+          <li>Modern, smooth UI</li>
+          <li>App Store & Play Store ready</li>
+        </ul>
+      ),      logos: [
+        require('../assets/react.png'),
+        require('../assets/android.png'),
+        require('../assets/apple.png')
+      ]
     },
     {
-      title: 'Web Development (React.js & Next.js)',
-      description: 'High-performance web apps with modern UI, fast load time, and SEO optimization.'
+      title: 'Web Development',
+      description: (
+        <ul style={styles.serviceList}>
+          <li>Modern & responsive UI</li>
+          <li>Built with React & Next.js</li>
+          <li>Fast performance & loading</li>
+          <li>SEO optimized</li>
+        </ul>
+      ),      logos: [
+        require('../assets/react.png'),
+        require('../assets/nextjs.png'),
+        require('../assets/javascript.png')
+      ]
     },
     {
-      title: 'Backend Development (Node.js & Laravel)',
-      description: 'Secure, scalable backends for web & mobile apps with custom APIs and database integration.'
+      title: 'Backend Development',
+      description: (
+        <ul style={styles.serviceList}>
+          <li>Custom APIs & integrations</li>
+          <li>Secure & scalable servers</li>
+          <li>Node.js & Laravel experts</li>
+          <li>Database & admin setup</li>
+        </ul>
+      ),      logos: [
+        require('../assets/nodejs.png'),
+        require('../assets/laravel.png'),
+       // require('../assets/api.png')
+      ]
     },
     {
       title: 'App Deployment',
-      description: 'Full support for publishing apps to the App Store & Google Play.'
+      description: (
+        <ul style={styles.serviceList}>
+          <li>iOS & Android publishing</li>
+          <li>Play Store & App Store ready</li>
+          <li>Build signing & optimization</li>
+          <li>Update & version control</li>
+        </ul>
+      ),      logos: [
+        require('../assets/app-store.png'),
+        require('../assets/google-play.png')
+      ]
     },
     {
       title: 'Shopify Development',
-      description: 'Custom Shopify stores built for conversion — design, customization & app integration.'
+      description: (
+        <ul style={styles.serviceList}>
+          <li>Custom Shopify themes</li>
+          <li>High-converting design</li>
+          <li>App/plugin integration</li>
+          <li>Fast, SEO-ready store</li>
+        </ul>
+      ),
+        logos: [
+        require('../assets/shopify.png'),
+       
+      ]
     },
     {
       title: 'WordPress Development',
-      description: 'Easy-to-manage, responsive websites using custom WordPress themes and plugins.'
+      description: (
+        <ul style={styles.serviceList}>
+          <li>Custom themes & plugins</li>
+          <li>Easy to manage websites</li>
+          <li>Fast, mobile-first design</li>
+          <li>Secure & optimized</li>
+        </ul>
+      ),      logos: [
+        require('../assets/wordpress.png'),
+        require('../assets/php.png')
+      ]
     },
-
-{
+    {
       title: 'Bug Fixing & Redesign',
-      description: 'Fix issues, improve performance, and redesign existing web & mobile apps for better user experience.'
+      description: (
+        <ul style={styles.serviceList}>
+          <li>Fix UI/UX issues</li>
+          <li>Improve performance</li>
+          <li>Mobile & web optimization</li>
+          <li>Modern redesign</li>
+        </ul>
+      ),
+      logos: [
+        require('../assets/bug-fix.png'),
+        require('../assets/redesign.png')
+      ]
     },
-
     {
       title: 'Additional Services',
       description: (
         <ul style={styles.serviceList}>
-          <li>UI/UX Design (Figma, Prototyping)</li>
-          <li>Branding (Logos, Visual Identity)</li>
-          <li>Digital Marketing (Social Media Strategy)</li>
+          <li>UI/UX Design (Figma)</li>
+          <li>Branding (Logos, Identity)</li>
+          <li>Marketing strategy</li>
+          <li>Social media creatives</li>
         </ul>
-      )
+      ),
+
+      logos: [
+        require('../assets/figma.png'),
+        require('../assets/branding.png'),
+        require('../assets/marketing.png')
+      ]
     }
   ];
-
+  
 
   return (
     <section style={styles.section}>
-      <h2 style={styles.sectionTitle}>What I Offer: High-Demand Web & Mobile Solutions</h2>
-      <ul style={styles.list}>
+      <h2 style={styles.sectionTitle}>
+        What I Offer: High-Demand Web & Mobile Solutions
+      </h2>
+      <div style={styles.list}>
         {services.map((service) => (
-          <li key={service.title} style={styles.listItem}>
+          <div key={service.title} style={styles.listItem}>
+            <div style={styles.techIcons}>
+              {service.logos?.map((logo, index) => (
+                <img
+                  key={index}
+                  src={logo}
+                  alt="tech logo"
+                  style={styles.techLogo}
+                />
+              ))}
+            </div>
             <h3 style={styles.serviceTitle}>{service.title}</h3>
-            <p style={styles.paragraph}>{service.description}</p>
-          </li>
+            {typeof service.description === 'string' ? (
+              <p style={styles.paragraph}>{service.description}</p>
+            ) : (
+              service.description
+            )}
+          </div>
         ))}
-      </ul>
+      </div>
     </section>
   );
 };

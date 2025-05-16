@@ -214,10 +214,10 @@ export const projects = [
   {
     id: 5,
     type: 'wordpress', // Must match filter values ('web', 'mobile', 'design')
-    title: 'Animation & Creative Agency',
+    title: 'Fashion eCommerce',
     tech: 'WordPress',
-    image: require('../assets/Protfolio/Animation & Creative Agency.png'),
-    url: 'https://www.anideos.com/',
+    image: require('../assets/Protfolio/MHS Collections.png'),
+    url: 'https://mhscollections.com/',
 
   },
   {
@@ -256,10 +256,10 @@ export const projects = [
   {
     id: 3,
     type: 'wordpress', // Must match filter values ('web', 'mobile', 'design')
-    title: 'Creative Portfolio',
+    title: 'Corporate / Technology',
     tech: 'WordPress',
-    image: require('../assets/Protfolio/splitarts.png'),
-    url: 'https://splitarts.com/',
+    image: require('../assets/Protfolio/Mozaik ICT.png'),
+    url: 'https://www.mozaik-ict.com/',
   },
   {
     id: 4,
