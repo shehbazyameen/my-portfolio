@@ -96,8 +96,8 @@ export const Services = ({ theme }) => {
         </ul>
       ),      logos: [
         require('../assets/react.png'),
-        require('../assets/app-store.png'),
-        require('../assets/google-play.png')
+        require('../assets/android.png'),
+        require('../assets/apple.png')
       ]
     },
     {
@@ -111,7 +111,8 @@ export const Services = ({ theme }) => {
         </ul>
       ),      logos: [
         require('../assets/react.png'),
-        require('../assets/nextjs.png')
+        require('../assets/nextjs.png'),
+        require('../assets/javascript.png')
       ]
     },
     {
@@ -155,7 +156,7 @@ export const Services = ({ theme }) => {
       ),
         logos: [
         require('../assets/shopify.png'),
-        require('../assets/javascript.png')
+       
       ]
     },
     {
