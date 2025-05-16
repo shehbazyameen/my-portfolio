@@ -17,7 +17,7 @@ export const Services = ({ theme }) => {
     sectionTitle: {
       fontSize: '2.5rem',
       fontWeight: 700,
-      marginBottom: '0.75rem',
+      marginBottom: '1.75rem',
       color: theme.text,
       position: 'relative',
       lineHeight: 1.3,
@@ -38,7 +38,7 @@ export const Services = ({ theme }) => {
       overflow: 'hidden',
       border: `1px solid ${theme.border}`,
       boxShadow: `0 4px 24px ${theme.shadow}20`,
-      minHeight: '320px',
+      minHeight: '260px',
       transition: 'all 0.4s ease',
       '&:hover': {
         transform: 'translateY(-5px)',
@@ -52,8 +52,8 @@ export const Services = ({ theme }) => {
       marginBottom: '1rem',
     },
     techLogo: {
-      width: '32px',
-      height: '32px',
+      width: '42px',
+      height: '42px',
       objectFit: 'contain',
       transition: 'transform 0.3s ease',
       '&:hover': {
@@ -70,15 +70,15 @@ export const Services = ({ theme }) => {
       WebkitTextFillColor: 'transparent',
     },
     paragraph: {
-      paddingLeft: '1rem',
+      //paddingLeft: '1rem',
       fontSize: '1.1rem',
       lineHeight: 1.6,
       color: theme.text,
       opacity: 0.9,
     },
     serviceList: {
-      paddingLeft: '1.25rem',
-      margin: '0.5rem 0',
+      paddingLeft: '1rem',
+      lineHeight: 1.6,
       color: theme.text,
       opacity: 0.9,
     }
@@ -87,25 +87,43 @@ export const Services = ({ theme }) => {
   const services = [
     {
       title: 'Mobile App Development',
-      description: 'iOS & Android apps using React Native — modern, fast & fully deployed to App Store & Google Play.',
-      logos: [
+      description: (
+        <ul style={styles.serviceList}>
+          <li>Cross-platform (iOS & Android)</li>
+          <li>Built with React Native</li>
+          <li>Modern, smooth UI</li>
+          <li>App Store & Play Store ready</li>
+        </ul>
+      ),      logos: [
         require('../assets/react.png'),
         require('../assets/app-store.png'),
         require('../assets/google-play.png')
       ]
     },
     {
-      title: 'Web Development (React.js & Next.js)',
-      description: 'High-performance web apps with modern UI, fast load time, and SEO optimization.',
-      logos: [
+      title: 'Web Development',
+      description: (
+        <ul style={styles.serviceList}>
+          <li>Modern & responsive UI</li>
+          <li>Built with React & Next.js</li>
+          <li>Fast performance & loading</li>
+          <li>SEO optimized</li>
+        </ul>
+      ),      logos: [
         require('../assets/react.png'),
         require('../assets/nextjs.png')
       ]
     },
     {
-      title: 'Backend Development (Node.js & Laravel)',
-      description: 'Secure, scalable backends for web & mobile apps with custom APIs and database integration.',
-      logos: [
+      title: 'Backend Development',
+      description: (
+        <ul style={styles.serviceList}>
+          <li>Custom APIs & integrations</li>
+          <li>Secure & scalable servers</li>
+          <li>Node.js & Laravel experts</li>
+          <li>Database & admin setup</li>
+        </ul>
+      ),      logos: [
         require('../assets/nodejs.png'),
         require('../assets/laravel.png'),
        // require('../assets/api.png')
@@ -113,31 +131,57 @@ export const Services = ({ theme }) => {
     },
     {
       title: 'App Deployment',
-      description: 'Full support for publishing apps to the App Store & Google Play.',
-      logos: [
+      description: (
+        <ul style={styles.serviceList}>
+          <li>iOS & Android publishing</li>
+          <li>Play Store & App Store ready</li>
+          <li>Build signing & optimization</li>
+          <li>Update & version control</li>
+        </ul>
+      ),      logos: [
         require('../assets/app-store.png'),
         require('../assets/google-play.png')
       ]
     },
     {
       title: 'Shopify Development',
-      description: 'Custom Shopify stores built for conversion — design, customization & app integration.',
-      logos: [
+      description: (
+        <ul style={styles.serviceList}>
+          <li>Custom Shopify themes</li>
+          <li>High-converting design</li>
+          <li>App/plugin integration</li>
+          <li>Fast, SEO-ready store</li>
+        </ul>
+      ),
+        logos: [
         require('../assets/shopify.png'),
         require('../assets/javascript.png')
       ]
     },
     {
       title: 'WordPress Development',
-      description: 'Easy-to-manage, responsive websites using custom WordPress themes and plugins.',
-      logos: [
+      description: (
+        <ul style={styles.serviceList}>
+          <li>Custom themes & plugins</li>
+          <li>Easy to manage websites</li>
+          <li>Fast, mobile-first design</li>
+          <li>Secure & optimized</li>
+        </ul>
+      ),      logos: [
         require('../assets/wordpress.png'),
         require('../assets/php.png')
       ]
     },
     {
       title: 'Bug Fixing & Redesign',
-      description: 'Fix issues, improve performance, and redesign existing web & mobile apps for better user experience.',
+      description: (
+        <ul style={styles.serviceList}>
+          <li>Fix UI/UX issues</li>
+          <li>Improve performance</li>
+          <li>Mobile & web optimization</li>
+          <li>Modern redesign</li>
+        </ul>
+      ),
       logos: [
         require('../assets/bug-fix.png'),
         require('../assets/redesign.png')
@@ -147,11 +191,13 @@ export const Services = ({ theme }) => {
       title: 'Additional Services',
       description: (
         <ul style={styles.serviceList}>
-          <li>UI/UX Design (Figma, Prototyping)</li>
-          <li>Branding (Logos, Visual Identity)</li>
-          <li>Digital Marketing (Social Media Strategy)</li>
+          <li>UI/UX Design (Figma)</li>
+          <li>Branding (Logos, Identity)</li>
+          <li>Marketing strategy</li>
+          <li>Social media creatives</li>
         </ul>
       ),
+
       logos: [
         require('../assets/figma.png'),
         require('../assets/branding.png'),
