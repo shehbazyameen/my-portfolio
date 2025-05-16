@@ -72,7 +72,7 @@ export const Footer = ({ theme }) => {
         <a href="#" style={styles.link}>Privacy Policy</a>
       </div>
       <p style={styles.paragraph}>
-        © 2023 Shehbaz Yameen. All rights reserved.
+        © 2025 Shehbaz Yameen. All rights reserved.
       </p>
     </footer>
   );

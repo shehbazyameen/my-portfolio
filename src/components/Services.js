@@ -70,7 +70,7 @@ export const Services = ({ theme }) => {
     listItem: {
       background: 'rgba(15, 23, 42, 0.3)',
       borderRadius: '16px',
-      padding: '1.5rem',
+      padding: '1.5rem 1.5rem 1.5rem 4rem', // Add left padding for icons
       position: 'relative',
       overflow: 'hidden',
       transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -82,7 +82,9 @@ export const Services = ({ theme }) => {
         boxShadow: `0 8px 32px ${theme.primary}30`,
         '&::before': {
           opacity: 1
-        }
+        },
+
+       
       },
 
       '&::before': {
@@ -106,6 +108,40 @@ export const Services = ({ theme }) => {
           transform: 'none'
         }
       }
+    },
+    techIcons: {
+      position: 'absolute',
+      left: '1rem',
+      top: '1.5rem',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '0.5rem',
+      '@media (min-width: 768px)': {
+        flexDirection: 'row',
+        alignItems: 'center',
+        top: '1rem'
+      }
+    },
+
+    techLogo: {
+      width: '28px',
+      height: '28px',
+      objectFit: 'contain',
+      transition: 'transform 0.3s ease',
+      '&:hover': {
+        transform: 'scale(1.2)'
+      },
+      '@media (max-width: 375px)': {
+        width: '24px',
+        height: '24px'
+      }
+    },
+
+    serviceTitleWrapper: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      marginBottom: '1rem'
     },
 
     serviceTitle: {
@@ -174,7 +210,11 @@ export const Services = ({ theme }) => {
   const services = [
     {
       title: 'Mobile App Development',
-      description: 'iOS & Android apps using React Native — modern, fast & fully deployed to App Store & Google Play.'
+      description: 'iOS & Android apps using React Native — modern, fast & fully deployed to App Store & Google Play.',
+      logos: [ // Must exist for all services
+        require('../assets/github.png'),
+        require('../assets/fiverr.png')
+      ]
     },
     {
       title: 'Web Development (React.js & Next.js)',
@@ -221,9 +261,21 @@ export const Services = ({ theme }) => {
       <ul style={styles.list}>
         {services.map((service) => (
           <li key={service.title} style={styles.listItem}>
+            <div style={styles.techIcons}>
+              {/* Add optional chaining here */}
+              {service.logos?.map((logo, index) => (
+                <img
+                  key={index}
+                  src={logo}
+                  alt="tech logo"
+                  style={styles.techLogo}
+                />
+              ))}
+            </div>
             <h3 style={styles.serviceTitle}>{service.title}</h3>
             <p style={styles.paragraph}>{service.description}</p>
           </li>
+          
         ))}
       </ul>
     </section>
