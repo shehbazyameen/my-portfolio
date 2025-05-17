@@ -264,9 +264,6 @@ export const Hero = ({ theme, scrollTo }) => {
       }
     },
 
-
-
-
     socialLinksWrapper: {
       display: 'flex',
       justifyContent: 'center',
@@ -353,6 +350,23 @@ export const Hero = ({ theme, scrollTo }) => {
           />
 
           <h1 style={styles.mainHeading}>Top-Rated Freelance Developer</h1>
+          <h1 style={{
+            fontSize: '1rem',
+            fontWeight: 800,
+            background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            lineHeight: 1.2,
+            margin: '0 0 1rem',
+            '@media (min-width: 375px)': { fontSize: '2rem' },
+            '@media (min-width: 768px)': {
+              fontSize: '3.5rem',
+              lineHeight: 1.3
+            }
+          }}>
+          AI-Driven. Industry-Tested. Results-Focused. </h1>
+
+
           <div style={styles.platformBadgesContainer}>
             <a href="https://www.upwork.com/freelancers/~010d76b63a789d9687" style={{ textDecoration: 'none' }}>
               <span style={styles.platformBadge}>
