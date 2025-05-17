@@ -47,7 +47,7 @@ export const Hero = ({ theme, scrollTo }) => {
       alignItems: 'center',
       padding: '1rem',
       gap: '1.5rem',
-     // minHeight: '95vh',
+      // minHeight: '95vh',
       '@media (min-width: 768px)': {
         flexDirection: 'row',
         padding: '4rem 2rem',
@@ -229,7 +229,7 @@ export const Hero = ({ theme, scrollTo }) => {
       aspectRatio: '1/1',
       marginBottom: '2rem',
       borderRadius: '60%',
-       overflow: 'hidden', // Keep this enabled
+      overflow: 'hidden', // Keep this enabled
       '@media (min-width: 768px)': {
         maxWidth: '450px'
       }
@@ -256,7 +256,7 @@ export const Hero = ({ theme, scrollTo }) => {
       display: 'flex',
       justifyContent: 'center',
       gap: '0.8rem',
-      marginTop: '1.5rem',
+      // marginTop: '1.5rem',
       marginBottom: '1.5rem',
       '@media (min-width: 768px)': {
         position: 'absolute',
@@ -320,7 +320,7 @@ export const Hero = ({ theme, scrollTo }) => {
           justifyContent: 'center',
           padding: isMobile ? '2rem 1rem' : '4rem 2rem',
           gap: '2rem',
-         // minHeight: '95vh',
+          // minHeight: '95vh',
         }}
       >
 
@@ -338,18 +338,29 @@ export const Hero = ({ theme, scrollTo }) => {
 
           <h1 style={styles.mainHeading}>Top-Rated Freelance Developer</h1>
           <div style={styles.platformBadgesContainer}>
-            <span style={styles.platformBadge}>
-              <img src={upwork} alt="Upwork" style={{ width: '42px' }} />
-              <span style={{ display: 'inline-block' }}>Top Rated</span>
-            </span>
-            <span style={styles.platformBadge}>
-              <img src={fiverr} alt="Fiverr" style={{ width: '42px' }} />
-              <span style={{ display: 'inline-block' }}>Level 2</span>
-            </span>
-            <span style={styles.platformBadge}>
-              <img src={peopleperhour} alt="PPH" style={{ width: '42px' }} />
-              <span style={{ display: 'inline-block' }}>Level 5</span>
-            </span>
+            <a href="https://www.upwork.com/freelancers/~010d76b63a789d9687" style={{ textDecoration: 'none' }}>
+              <span style={styles.platformBadge}>
+                <img src={upwork} alt="Upwork" style={{ width: '32px' }} />
+                <span style={{ display: 'inline-block' }}>Top Rated</span>
+              </span>
+            </a>
+            <a href="https://www.fiverr.com/shehbazfiver786" style={{ textDecoration: 'none' }}>
+              <span style={styles.platformBadge}>
+                <img src={fiverr} alt="Fiverr" style={{ width: '32px' }} />
+                <span style={{ display: 'inline-block' }}>Top Rated</span>
+              </span>
+
+            </a>
+
+            <a href="http://pph.me/shehbazyameen" style={{ textDecoration: 'none' }}>
+
+              <span style={styles.platformBadge}>
+                <img src={peopleperhour} alt="PPH" style={{ width: '32px' }} />
+                <span style={{ display: 'inline-block' }}>Top Rated</span>
+              </span>
+            </a>
+
+
           </div>
 
           <p style={styles.subHeading}>
@@ -380,7 +391,7 @@ export const Hero = ({ theme, scrollTo }) => {
             </a>
           </div>
 
-          
+
         </div>
 
         {/* Right Column -  Profile Image */}
@@ -390,7 +401,7 @@ export const Hero = ({ theme, scrollTo }) => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          flexDirection:'column'
+          flexDirection: 'column'
         }}>
           <div style={styles.profileImageContainer}>
             <img src={dummyImage} alt="Profile" style={styles.profileImage} />
@@ -404,7 +415,7 @@ export const Hero = ({ theme, scrollTo }) => {
             ))}
           </div>
         </div>
-        
+
       </div>
 
 
