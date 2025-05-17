@@ -12,6 +12,9 @@ import peopleperhour from '../assets/peopleperhour.png';
 
 export const Hero = ({ theme, scrollTo }) => {
 
+  const [isHoverPortfolio, setIsHoverPortfolio] = useState(false);
+  const [isHoverWhatsApp, setIsHoverWhatsApp] = useState(false);
+  const [isHoverHire, setIsHoverHire] = useState(false);
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -200,8 +203,8 @@ export const Hero = ({ theme, scrollTo }) => {
       maxWidth: '280px',
       margin: '0 auto',
       cursor: 'pointer',
-      transition: 'transform 0.2s ease',
-      '&:active': { transform: 'scale(0.98)' },
+      transition: 'all 0.3s ease',
+     
       '@media (min-width: 768px)': {
         width: 'auto',
         margin: '0',
@@ -214,8 +217,20 @@ export const Hero = ({ theme, scrollTo }) => {
       background: 'none',
       border: `2px solid ${theme.primary}`,
       color: theme.text,
-      '&:active': { background: theme.primary + '15' }
+      transition: 'all 0.3s ease',
+     
     },
+
+    primaryButtonHover: {
+      transform: 'translateY(-2px)',
+      boxShadow: `0 5px 15px ${theme.primary}80`
+    },
+
+    secondaryButtonHover: {
+      transform: 'scale(1.05)',
+      background: `${theme.primary}20`
+    },
+   
 
 
     profileImageContainer: {
@@ -304,7 +319,8 @@ export const Hero = ({ theme, scrollTo }) => {
       opacity: 0.9,
       '@media (min-width: 375px)': { fontSize: '1rem' },
       '@media (min-width: 768px)': { fontSize: '1.1rem' }
-    }
+    },
+
   };
 
   return (
@@ -329,7 +345,7 @@ export const Hero = ({ theme, scrollTo }) => {
 
         <div style={{ flex: 1, ...styles.contentWrapper }}>
           <TypeAnimation
-            sequence={['Hi there! 👋', 1000, "Hi! I'm Shehbaz 👋", 1000]}
+            sequence={['Hi there! 👋', 1000, "Hi! I'm Shehbaz Yameen 👋", 1000]}
             wrapper="div"
             cursor={true}
             repeat={Infinity}
@@ -376,20 +392,51 @@ export const Hero = ({ theme, scrollTo }) => {
 
           <div style={styles.ctaButtonGroup}>
             <button
-              style={{ ...styles.primaryButton, ...styles.secondaryButton }}
+              style={{
+                ...styles.primaryButton,
+                ...styles.secondaryButton,
+                ...(isHoverPortfolio && styles.secondaryButtonHover)
+              }}
               onClick={() => scrollTo('portfolio')}
+              onMouseEnter={() => setIsHoverPortfolio(true)}
+              onMouseLeave={() => setIsHoverPortfolio(false)}
             >
               View Portfolio
             </button>
+
             <a href="https://wa.me/+923100609111" style={{ textDecoration: 'none' }}>
-              <button style={{ ...styles.primaryButton, ...styles.secondaryButton }}>
+              <button
+                style={{
+                  ...styles.primaryButton,
+                  ...styles.secondaryButton,
+                  ...(isHoverWhatsApp && styles.secondaryButtonHover)
+                }}
+                onMouseEnter={() => setIsHoverWhatsApp(true)}
+                onMouseLeave={() => setIsHoverWhatsApp(false)}
+              >
                 WhatsApp Chat
               </button>
             </a>
+
             <a href="https://www.upwork.com/freelancers/~010d76b63a789d9687" style={{ textDecoration: 'none' }}>
-              <button style={styles.primaryButton}>Hire Me Now</button>
+              <button
+                style={{
+                  ...styles.primaryButton,
+                  ...(isHoverHire && styles.primaryButtonHover)
+                }}
+                onMouseEnter={() => setIsHoverHire(true)}
+                onMouseLeave={() => setIsHoverHire(false)}
+              >
+                Hire Me Now
+              </button>
             </a>
           </div>
+          <p style={styles.statsText}>
+
+            📌 Freelance | 📁 Project-Based | 🕒 Full/Part Time
+          </p>
+
+
 
 
         </div>
