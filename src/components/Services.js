@@ -126,8 +126,8 @@ export const Services = ({ theme }) => {
         </ul>
       ),      logos: [
         require('../assets/nodejs.png'),
+        require('../assets/firebase.png'),
         require('../assets/laravel.png'),
-       // require('../assets/api.png')
       ]
     },
     {
