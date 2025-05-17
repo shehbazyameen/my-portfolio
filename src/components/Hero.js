@@ -1,5 +1,6 @@
 // src/components/Hero.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { TypeAnimation } from 'react-type-animation';
 
 import dummyImage from '../assets/profile.png';
@@ -10,6 +11,21 @@ import peopleperhour from '../assets/peopleperhour.png';
 
 
 export const Hero = ({ theme, scrollTo }) => {
+
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
+
+
   const socialLinks = [
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/shehbaz-yameen/', icon: require('../assets/linkedin.png') },
     { name: 'GitHub', url: 'https://github.com/shehbazyameen', icon: require('../assets/github.png') },
@@ -31,14 +47,14 @@ export const Hero = ({ theme, scrollTo }) => {
       alignItems: 'center',
       padding: '1rem',
       gap: '1.5rem',
-      minHeight: '95vh',
+     // minHeight: '95vh',
       '@media (min-width: 768px)': {
         flexDirection: 'row',
         padding: '4rem 2rem',
         gap: '4rem',
         maxWidth: '1440px',
         margin: '0 auto'
-      }
+      },
     },
 
     contentWrapper: {
@@ -203,9 +219,8 @@ export const Hero = ({ theme, scrollTo }) => {
 
 
     profileImageContainer: {
-     
       width: '100%',
-      maxWidth: '280px',
+      maxWidth: '380px',
       position: 'relative',
       display: 'flex', // Added to enable flexbox
       justifyContent: 'center',
@@ -214,14 +229,11 @@ export const Hero = ({ theme, scrollTo }) => {
       aspectRatio: '1/1',
       marginBottom: '2rem',
       borderRadius: '60%',
-      // overflow: 'hidden', // Keep this enabled
+       overflow: 'hidden', // Keep this enabled
       '@media (min-width: 768px)': {
         maxWidth: '450px'
       }
     },
-
-
-
 
     profileImage: {
       width: '100%',
@@ -300,87 +312,101 @@ export const Hero = ({ theme, scrollTo }) => {
 
 
 
-      <div style={styles.contentWrapper}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: isMobile ? 'column' : 'row',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: isMobile ? '2rem 1rem' : '4rem 2rem',
+          gap: '2rem',
+         // minHeight: '95vh',
+        }}
+      >
 
-        <div style={styles.profileImageContainer}>
-          <img
-            src={dummyImage}
-            alt="Shehbaz Yameen"
-            style={styles.profileImage}
+        {/* Left Column - Content */}
+
+
+        <div style={{ flex: 1, ...styles.contentWrapper }}>
+          <TypeAnimation
+            sequence={['Hi there! 👋', 1000, "Hi! I'm Shehbaz 👋", 1000]}
+            wrapper="div"
+            cursor={true}
+            repeat={Infinity}
+            style={styles.greetingText}
           />
 
-        </div>
+          <h1 style={styles.mainHeading}>Top-Rated Freelance Developer</h1>
+          <div style={styles.platformBadgesContainer}>
+            <span style={styles.platformBadge}>
+              <img src={upwork} alt="Upwork" style={{ width: '42px' }} />
+              <span style={{ display: 'inline-block' }}>Top Rated</span>
+            </span>
+            <span style={styles.platformBadge}>
+              <img src={fiverr} alt="Fiverr" style={{ width: '42px' }} />
+              <span style={{ display: 'inline-block' }}>Level 2</span>
+            </span>
+            <span style={styles.platformBadge}>
+              <img src={peopleperhour} alt="PPH" style={{ width: '42px' }} />
+              <span style={{ display: 'inline-block' }}>Level 5</span>
+            </span>
+          </div>
+
+          <p style={styles.subHeading}>
+            Delivering agency-level quality at freelancer-friendly rates.
+          </p>
 
 
-        <div style={styles.socialLinksWrapper}>
-          {socialLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.socialLinkItem}
+
+          <p style={styles.statsText}>
+
+            Expert Full-Stack Developer | Web & Mobile Apps | 50+ Projects Delivered | 100% Client Satisfaction
+          </p>
+
+          <div style={styles.ctaButtonGroup}>
+            <button
+              style={{ ...styles.primaryButton, ...styles.secondaryButton }}
+              onClick={() => scrollTo('portfolio')}
             >
-              <img
-                src={link.icon}
-                alt={link.name}
-                style={styles.socialIcon}
-              />
-            </a>
-          ))}
-        </div>
-        <TypeAnimation
-          sequence={['Hi there! 👋', 1000, "Hi! I'm Shehbaz 👋", 1000]}
-          wrapper="div"
-          cursor={true}
-          repeat={Infinity}
-          style={styles.greetingText}
-        />
-
-        <h1 style={styles.mainHeading}>Top-Rated Freelance Developer</h1>
-        <div style={styles.platformBadgesContainer}>
-          <span style={styles.platformBadge}>
-            <img src={upwork} alt="Upwork" style={{ width: '42px' }} />
-            <span style={{ display: 'inline-block' }}>Top Rated</span>
-          </span>
-          <span style={styles.platformBadge}>
-            <img src={fiverr} alt="Fiverr" style={{ width: '42px' }} />
-            <span style={{ display: 'inline-block' }}>Level 2</span>
-          </span>
-          <span style={styles.platformBadge}>
-            <img src={peopleperhour} alt="PPH" style={{ width: '42px' }} />
-            <span style={{ display: 'inline-block' }}>Level 5</span>
-          </span>
-        </div>
-
-        <p style={styles.subHeading}>
-          Delivering agency-level quality at freelancer-friendly rates.
-        </p>
-
-       
-
-        <p style={styles.statsText}>
-
-        Expert Full-Stack Developer | Web & Mobile Apps | 50+ Projects Delivered | 100% Client Satisfaction
-        </p>
-
-        <div style={styles.ctaButtonGroup}>
-          <button
-            style={{ ...styles.primaryButton, ...styles.secondaryButton }}
-            onClick={() => scrollTo('portfolio')}
-          >
-            View Portfolio
-          </button>
-          <a href="https://wa.me/+923100609111" style={{ textDecoration: 'none' }}>
-            <button style={{ ...styles.primaryButton, ...styles.secondaryButton }}>
-              WhatsApp Chat
+              View Portfolio
             </button>
-          </a>
-          <a href="https://www.upwork.com/freelancers/~010d76b63a789d9687" style={{ textDecoration: 'none' }}>
-            <button style={styles.primaryButton}>Hire Me Now</button>
-          </a>
+            <a href="https://wa.me/+923100609111" style={{ textDecoration: 'none' }}>
+              <button style={{ ...styles.primaryButton, ...styles.secondaryButton }}>
+                WhatsApp Chat
+              </button>
+            </a>
+            <a href="https://www.upwork.com/freelancers/~010d76b63a789d9687" style={{ textDecoration: 'none' }}>
+              <button style={styles.primaryButton}>Hire Me Now</button>
+            </a>
+          </div>
+
+          
         </div>
+
+        {/* Right Column -  Profile Image */}
+
+        <div style={{
+          flex: 1,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection:'column'
+        }}>
+          <div style={styles.profileImageContainer}>
+            <img src={dummyImage} alt="Profile" style={styles.profileImage} />
+          </div>
+
+          <div style={styles.socialLinksWrapper}>
+            {socialLinks.map((link, index) => (
+              <a key={index} href={link.url} style={styles.socialLinkItem} target="_blank" rel="noopener noreferrer">
+                <img src={link.icon} alt={link.name} style={styles.socialIcon} />
+              </a>
+            ))}
+          </div>
+        </div>
+        
       </div>
+
 
 
     </section>
