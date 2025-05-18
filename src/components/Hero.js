@@ -43,6 +43,132 @@ export const Hero = ({ theme, scrollTo }) => {
 
   const styles = {
 
+    expertiseContainer: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: '1rem',
+      justifyContent: 'center',
+      margin: '2rem 0',
+      padding: '1.5rem',
+      background: `linear-gradient(145deg, ${theme.primary}15, ${theme.secondary}10)`,
+      borderRadius: '16px',
+      border: `1px solid ${theme.primary}30`,
+      position: 'relative',
+      overflow: 'hidden',
+      '@media (min-width: 768px)': {
+        justifyContent: 'space-between'
+      }
+    },
+
+    expertiseItem: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      padding: '0.8rem 1.2rem',
+      background: 'rgba(255,255,255,0.05)',
+      borderRadius: '8px',
+      transition: 'all 0.3s ease',
+      '&:hover': {
+        transform: 'translateY(-3px)',
+        boxShadow: `0 4px 15px ${theme.primary}30`
+      }
+    },
+
+    expertiseIcon: {
+      width: '24px',
+      height: '24px',
+      filter: `drop-shadow(0 2px 4px ${theme.primary}30)`
+    },
+
+    expertiseText: {
+      fontSize: '0.95rem',
+      background: `linear-gradient(45deg, ${theme.text}, ${theme.primary})`,
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      fontWeight: 600,
+      margin: 0,
+      '@media (min-width: 768px)': {
+        fontSize: '1.1rem'
+      }
+    },
+
+    expertiseSeparator: {
+      display: 'none',
+      '@media (min-width: 768px)': {
+        display: 'block',
+        color: theme.primary,
+        opacity: 0.5,
+        margin: '0 1rem'
+      }
+    },
+    mainHeading: {
+      fontSize: '1.8rem',
+      fontWeight: 800,
+      background: `linear-gradient(45deg, ${theme.primary}, ${theme.secondary})`,
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      lineHeight: 1.2,
+      margin: '0 0 1rem',
+      position: 'relative',
+      '@media (min-width: 375px)': { fontSize: '2rem' },
+      '@media (min-width: 768px)': {
+        fontSize: '3.5rem',
+        lineHeight: 1.3
+      }
+    },
+
+    dynamicTagline: {
+      fontSize: '1.2rem',
+      fontWeight: 700,
+      background: `linear-gradient(45deg, ${theme.secondary}, ${theme.primary})`,
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      lineHeight: 1.3,
+      margin: '1rem 0',
+      padding: '0.5rem 1rem',
+      display: 'inline-block',
+      borderRadius: '8px',
+      border: `2px solid ${theme.primary}30`,
+      transition: 'all 0.3s ease',
+      '&:hover': {
+        transform: 'translateY(-2px)',
+        boxShadow: `0 4px 15px ${theme.primary}30`
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '1.5rem',
+        margin: '1.5rem 0'
+      }
+    },
+
+    animatedSubheading: {
+      fontSize: '1.1rem',
+      color: theme.text,
+      margin: '1.5rem 0',
+      padding: '1.5rem',
+      background: `linear-gradient(145deg, ${theme.primary}15, ${theme.secondary}10)`,
+      borderRadius: '12px',
+      border: `1px solid ${theme.primary}30`,
+      position: 'relative',
+      overflow: 'hidden',
+      '&::before': {
+        content: '""',
+        position: 'absolute',
+        top: 0,
+        left: '-100%',
+        width: '100%',
+        height: '100%',
+        background: `linear-gradient(90deg, transparent, ${theme.primary}15, transparent)`,
+        transition: 'left 0.6s ease'
+      },
+      '&:hover::before': {
+        left: '100%'
+      },
+      '@media (min-width: 768px)': {
+        fontSize: '1.3rem',
+        padding: '2rem'
+      }
+    },
+
 
     hero: {
       display: 'flex',
@@ -393,17 +519,40 @@ export const Hero = ({ theme, scrollTo }) => {
 
           </div>
 
-          <p style={styles.subHeading}>
-            Delivering agency-level quality at freelancer-friendly rates.
-          </p>
+          <div style={styles.animatedSubheading}>
+            ✨ Delivering <strong>agency-level quality</strong> at <br />
+            <strong>freelancer-friendly rates</strong> with 100% client satisfaction
+          </div>
 
 
 
-          <p style={styles.statsText}>
+          <div style={styles.expertiseContainer}>
+            <div style={styles.expertiseItem}>
+              
+              <p style={styles.expertiseText}>Expert Full-Stack Developer (5+ Years)</p>
+            </div>
 
-            Expert Full-Stack Developer | Web & Mobile Apps | 50+ Projects Delivered | 100% Client Satisfaction
-          </p>
+            <span style={styles.expertiseSeparator}>|</span>
 
+            <div style={styles.expertiseItem}>
+             
+              <p style={styles.expertiseText}>Web & Mobile Apps Expert</p>
+            </div>
+
+            <span style={styles.expertiseSeparator}>|</span>
+
+            <div style={styles.expertiseItem}>
+             
+              <p style={styles.expertiseText}>50+ Projects Delivered</p>
+            </div>
+
+            <span style={styles.expertiseSeparator}>|</span>
+
+            <div style={styles.expertiseItem}>
+             
+              <p style={styles.expertiseText}>Excellence in Every Line of Code</p>
+            </div>
+          </div>
           <div style={styles.ctaButtonGroup}>
             <button
               style={{
@@ -449,33 +598,37 @@ export const Hero = ({ theme, scrollTo }) => {
 
             📌 Freelance | 📁 Project-Based | 🕒 Full/Part Time
           </p>
-
-
-
-
         </div>
+
+
+
+        
 
         {/* Right Column -  Profile Image */}
 
-        <div style={{
-          flex: 1,
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexDirection: 'column'
-        }}>
-          <div style={styles.profileImageContainer}>
-            <img src={dummyImage} alt="Profile" style={styles.profileImage} />
-          </div>
+        <div style={styles.profileColumn}>
+          <div style={{
+            flex: 1,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'column'
+          }}>
+            <div style={styles.profileImageContainer}>
+              <img src={dummyImage} alt="Profile" style={styles.profileImage} />
+            </div>
 
-          <div style={styles.socialLinksWrapper}>
-            {socialLinks.map((link, index) => (
-              <a key={index} href={link.url} style={styles.socialLinkItem} target="_blank" rel="noopener noreferrer">
-                <img src={link.icon} alt={link.name} style={styles.socialIcon} />
-              </a>
-            ))}
+            <div style={styles.socialLinksWrapper}>
+              {socialLinks.map((link, index) => (
+                <a key={index} href={link.url} style={styles.socialLinkItem} target="_blank" rel="noopener noreferrer">
+                  <img src={link.icon} alt={link.name} style={styles.socialIcon} />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
+
+        
 
       </div>
 
