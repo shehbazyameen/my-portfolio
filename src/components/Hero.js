@@ -1,7 +1,28 @@
 // src/components/Hero.js
 import React, { useEffect, useState } from 'react';
 
+
 import { TypeAnimation } from 'react-type-animation';
+// Import statements
+import {
+  FaAndroid,        // Android
+  FaApple,          // iOS
+  FaCode,           // Coding
+  FaGlobe,          // Web Development
+  FaNodeJs,         // Node.js
+  FaMobileAlt,      // Mobile App
+  FaLaptopCode      // General Coding
+} from 'react-icons/fa';
+
+import {
+  SiReact,          // React.js
+  SiJavascript,     // JavaScript
+  SiFirebase,       // Firebase
+  SiWordpress,      // WordPress
+  SiShopify,        // Shopify
+  SiNextdotjs,      // Next.js
+  SiTypescript      // TypeScript (common with Next.js)
+} from 'react-icons/si';
 
 import dummyImage from '../assets/profile.png';
 import upwork from '../assets/upwork.png';
@@ -25,8 +46,31 @@ export const Hero = ({ theme, scrollTo }) => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+  // Function to generate random positions
+  const randomPosition = () => ({
+    top: `${Math.random() * 100}%`,
+    animationDelay: `${Math.random() * 10}s`
+  });
 
 
+
+  
+  // Example usage in your tech stack array
+  const techStack = [
+   // { icon: <FaMobileAlt />, name: 'Mobile App', animation: 'spin' },
+    { icon: <FaAndroid />, name: 'Android', animation: 'spin' },
+    { icon: <FaApple />, name: 'iOS', animation: 'spin' },
+//    { icon: <FaGlobe />, name: 'Web Dev', animation: 'spin' },
+    { icon: <FaCode />, name: 'Coding', animation: 'spin' },
+    { icon: <SiReact />, name: 'React', animation: 'spin' },
+    { icon: <SiJavascript />, name: 'JavaScript', animation: 'spin' },
+    { icon: <FaNodeJs />, name: 'Node.js', animation: 'spin' },
+    //{ icon: <SiFirebase />, name: 'Firebase', animation: 'float' },
+    //{ icon: <SiWordpress />, name: 'WordPress', animation: 'spin' },
+   // { icon: <SiShopify />, name: 'Shopify', animation: 'spin' },
+    //{ icon: <SiNextdotjs />, name: 'Next.js', animation: 'spin' },
+    //{ icon: <FaLaptopCode />, name: 'Development', animation: 'spin' }
+  ];
 
 
   const socialLinks = [
@@ -42,6 +86,80 @@ export const Hero = ({ theme, scrollTo }) => {
 
 
   const styles = {
+    techSpinners: {
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      overflow: 'hidden',
+      zIndex: 0,
+      pointerEvents: 'none',
+      display: 'grid',  // Changed to grid layout
+      gridTemplateColumns: 'repeat(auto-fit, minmax(60px, 1fr))',
+      gap: '2rem', // Space between icons
+      padding: '1rem',
+    },
+
+    techIcon: {
+      opacity: 0.15,
+      color: theme.primary,
+      fontSize: '2.5rem',
+      margin: '1rem', // Add margin around each icon
+      animationDuration: '20s',
+      animationIterationCount: 'infinite',
+      animationTimingFunction: 'linear',
+      // Add minimum spacing constraints
+      minWidth: '60px',
+      minHeight: '60px',
+      '@media (max-width: 768px)': {
+        fontSize: '1.5rem',
+        opacity: 0.1,
+        margin: '0.5rem', // Smaller margin on mobile
+        minWidth: '40px',
+        minHeight: '40px',
+      }
+    },
+    
+    // Animation keyframes
+    '@keyframes spin': {
+      '0%': { transform: 'rotate(0deg)' },
+      '100%': { transform: 'rotate(360deg)' }
+    },
+    '@keyframes spinReverse': {
+      '0%': { transform: 'rotate(360deg)' },
+      '100%': { transform: 'rotate(0deg)' }
+    },
+    '@keyframes float': {
+      '0%, 100%': { transform: 'translateY(0)' },
+      '50%': { transform: 'translateY(-20px)' }
+    },
+    '@keyframes pulse': {
+      '0%, 100%': { transform: 'scale(1)' },
+      '50%': { transform: 'scale(1.2)' }
+    },
+    '@keyframes bounce': {
+      '0%, 100%': { transform: 'translateY(0)' },
+      '50%': { transform: 'translateY(-10px)' }
+    },
+    '@keyframes spin': {
+      '0%': { transform: 'rotate(0deg)' },
+      '100%': { transform: 'rotate(360deg)' }
+    },
+    '@keyframes spinReverse': {
+      '0%': { transform: 'rotate(360deg)' },
+      '100%': { transform: 'rotate(0deg)' }
+    },
+    '@keyframes float': {
+      '0%, 100%': { transform: 'translateY(0)' },
+      '50%': { transform: 'translateY(-20px)' }
+    },
+    '@keyframes pulse': {
+      '0%, 100%': { transform: 'scale(1)' },
+      '50%': { transform: 'scale(1.2)' }
+    },
+    '@keyframes bounce': {
+      '0%, 100%': { transform: 'translateY(0)' },
+      '50%': { transform: 'translateY(-10px)' }
+    },
 
     expertiseContainer: {
       display: 'flex',
@@ -451,6 +569,23 @@ export const Hero = ({ theme, scrollTo }) => {
 
 
 
+      {/* Tech Spinner Background */}
+      <div style={styles.techSpinners}>
+        {techStack.map((tech, index) => (
+          <div
+            key={index}
+            style={{
+              ...styles.techIcon,
+              ...randomPosition(),
+              animationName: tech.animation
+            }}
+            aria-hidden="true"
+          >
+            {tech.icon}
+          </div>
+        ))}
+      </div>
+
       <div
         style={{
           display: 'flex',
@@ -459,7 +594,8 @@ export const Hero = ({ theme, scrollTo }) => {
           justifyContent: 'center',
           padding: isMobile ? '2rem 1rem' : '4rem 2rem',
           gap: '2rem',
-          // minHeight: '95vh',
+          position: 'relative',
+          zIndex: 1 // Ensure content stays on top
         }}
       >
 
@@ -607,6 +743,7 @@ export const Hero = ({ theme, scrollTo }) => {
         {/* Right Column -  Profile Image */}
 
         <div style={styles.profileColumn}>
+        
           <div style={{
             flex: 1,
             display: 'flex',
@@ -626,6 +763,7 @@ export const Hero = ({ theme, scrollTo }) => {
               ))}
             </div>
           </div>
+          
         </div>
 
         
@@ -633,7 +771,7 @@ export const Hero = ({ theme, scrollTo }) => {
       </div>
 
 
-
+   
     </section>
   );
 };
