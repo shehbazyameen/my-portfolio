@@ -64,7 +64,7 @@ export const Hero = ({ theme, scrollTo }) => {
     { icon: <FaCode />, name: 'Coding', animation: 'spin' },
     { icon: <SiReact />, name: 'React', animation: 'spin' },
     { icon: <SiJavascript />, name: 'JavaScript', animation: 'spin' },
-    { icon: <FaNodeJs />, name: 'Node.js', animation: 'spin' },
+   // { icon: <FaNodeJs />, name: 'Node.js', animation: 'spin' },
     //{ icon: <SiFirebase />, name: 'Firebase', animation: 'float' },
     //{ icon: <SiWordpress />, name: 'WordPress', animation: 'spin' },
    // { icon: <SiShopify />, name: 'Shopify', animation: 'spin' },
@@ -644,13 +644,13 @@ export const Hero = ({ theme, scrollTo }) => {
 
             </a>
 
-            <a href="http://pph.me/shehbazyameen" style={{ textDecoration: 'none' }}>
+            {/* <a href="http://pph.me/shehbazyameen" style={{ textDecoration: 'none' }}>
 
               <span style={styles.platformBadge}>
                 <img src={peopleperhour} alt="PPH" style={{ width: '32px' }} />
                 <span style={{ display: 'inline-block' }}>Top Rated</span>
               </span>
-            </a>
+            </a> */}
 
 
           </div>
@@ -665,7 +665,7 @@ export const Hero = ({ theme, scrollTo }) => {
           <div style={styles.expertiseContainer}>
             <div style={styles.expertiseItem}>
               
-              <p style={styles.expertiseText}>Expert Full-Stack Developer (5+ Years)</p>
+              <p style={styles.expertiseText}>React Native & React js (3+ Years)</p>
             </div>
 
             <span style={styles.expertiseSeparator}>|</span>
@@ -679,7 +679,7 @@ export const Hero = ({ theme, scrollTo }) => {
 
             <div style={styles.expertiseItem}>
              
-              <p style={styles.expertiseText}>50+ Projects Delivered</p>
+              <p style={styles.expertiseText}>10+ Projects Delivered</p>
             </div>
 
             <span style={styles.expertiseSeparator}>|</span>

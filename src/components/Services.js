@@ -111,7 +111,6 @@ export const Services = ({ theme }) => {
         </ul>
       ),      logos: [
         require('../assets/react.png'),
-        require('../assets/nextjs.png'),
         require('../assets/javascript.png')
       ]
     },
