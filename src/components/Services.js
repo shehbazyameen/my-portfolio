@@ -105,7 +105,7 @@ export const Services = ({ theme }) => {
       description: (
         <ul style={styles.serviceList}>
           <li>Modern & responsive UI</li>
-          <li>Built with React & Next.js</li>
+          <li>Built with React js</li>
           <li>Fast performance & loading</li>
           <li>SEO optimized</li>
         </ul>
@@ -115,21 +115,21 @@ export const Services = ({ theme }) => {
         require('../assets/javascript.png')
       ]
     },
-    {
-      title: 'Backend Development',
-      description: (
-        <ul style={styles.serviceList}>
-          <li>Custom APIs & integrations</li>
-          <li>Secure & scalable servers</li>
-          <li>Node.js & Laravel experts</li>
-          <li>Database & admin setup</li>
-        </ul>
-      ),      logos: [
-        require('../assets/nodejs.png'),
-        require('../assets/firebase.png'),
-        require('../assets/laravel.png'),
-      ]
-    },
+    // {
+    //   title: 'Backend Development',
+    //   description: (
+    //     <ul style={styles.serviceList}>
+    //       <li>Custom APIs & integrations</li>
+    //       <li>Secure & scalable servers</li>
+    //       <li>Node.js & Laravel experts</li>
+    //       <li>Database & admin setup</li>
+    //     </ul>
+    //   ),      logos: [
+    //     require('../assets/nodejs.png'),
+    //     require('../assets/firebase.png'),
+    //     require('../assets/laravel.png'),
+    //   ]
+    // },
     {
       title: 'App Deployment',
       description: (
@@ -144,67 +144,67 @@ export const Services = ({ theme }) => {
         require('../assets/google-play.png')
       ]
     },
-    {
-      title: 'Shopify Development',
-      description: (
-        <ul style={styles.serviceList}>
-          <li>Custom Shopify themes</li>
-          <li>High-converting design</li>
-          <li>App/plugin integration</li>
-          <li>Fast, SEO-ready store</li>
-        </ul>
-      ),
-        logos: [
-        require('../assets/shopify.png'),
+    // {
+    //   title: 'Shopify Development',
+    //   description: (
+    //     <ul style={styles.serviceList}>
+    //       <li>Custom Shopify themes</li>
+    //       <li>High-converting design</li>
+    //       <li>App/plugin integration</li>
+    //       <li>Fast, SEO-ready store</li>
+    //     </ul>
+    //   ),
+    //     logos: [
+    //     require('../assets/shopify.png'),
        
-      ]
-    },
-    {
-      title: 'WordPress Development',
-      description: (
-        <ul style={styles.serviceList}>
-          <li>Custom themes & plugins</li>
-          <li>Easy to manage websites</li>
-          <li>Fast, mobile-first design</li>
-          <li>Secure & optimized</li>
-        </ul>
-      ),      logos: [
-        require('../assets/wordpress.png'),
-        require('../assets/php.png')
-      ]
-    },
-    {
-      title: 'Bug Fixing & Redesign',
-      description: (
-        <ul style={styles.serviceList}>
-          <li>Fix UI/UX issues</li>
-          <li>Improve performance</li>
-          <li>Mobile & web optimization</li>
-          <li>Modern redesign</li>
-        </ul>
-      ),
-      logos: [
-        require('../assets/bug-fix.png'),
-        require('../assets/redesign.png')
-      ]
-    },
-    {
-      title: 'Additional Services',
-      description: (
-        <ul style={styles.serviceList}>
-          <li>UI/UX Design (Figma)</li>
-          <li>Branding (Logos, Identity)</li>
-          <li>Marketing strategy</li>
-          <li>Social media creatives</li>
-        </ul>
-      ),
+    //   ]
+    // },
+    // {
+    //   title: 'WordPress Development',
+    //   description: (
+    //     <ul style={styles.serviceList}>
+    //       <li>Custom themes & plugins</li>
+    //       <li>Easy to manage websites</li>
+    //       <li>Fast, mobile-first design</li>
+    //       <li>Secure & optimized</li>
+    //     </ul>
+    //   ),      logos: [
+    //     require('../assets/wordpress.png'),
+    //     require('../assets/php.png')
+    //   ]
+    // },
+    // {
+    //   title: 'Bug Fixing & Redesign',
+    //   description: (
+    //     <ul style={styles.serviceList}>
+    //       <li>Fix UI/UX issues</li>
+    //       <li>Improve performance</li>
+    //       <li>Mobile & web optimization</li>
+    //       <li>Modern redesign</li>
+    //     </ul>
+    //   ),
+    //   logos: [
+    //     require('../assets/bug-fix.png'),
+    //     require('../assets/redesign.png')
+    //   ]
+    // },
+    // {
+    //   title: 'Additional Services',
+    //   description: (
+    //     <ul style={styles.serviceList}>
+    //       <li>UI/UX Design (Figma)</li>
+    //       <li>Branding (Logos, Identity)</li>
+    //       <li>Marketing strategy</li>
+    //       <li>Social media creatives</li>
+    //     </ul>
+    //   ),
 
-      logos: [
-        require('../assets/figma.png'),
-        require('../assets/branding.png'),
-        require('../assets/marketing.png')
-      ]
-    }
+    //   logos: [
+    //     require('../assets/figma.png'),
+    //     require('../assets/branding.png'),
+    //     require('../assets/marketing.png')
+    //   ]
+    // }
   ];
   
 
