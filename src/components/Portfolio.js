@@ -238,7 +238,7 @@ export const Portfolio = ({ theme }) => {
       <h2 style={styles.sectionTitle}>Portfolio</h2>
 
       <div style={styles.filterButtons}>
-        {['mobile', 'web', 'wordpress', 'shopify'].map((filter) => (
+        {['mobile', 'web'].map((filter) => (
           <button
             key={filter}
             style={{

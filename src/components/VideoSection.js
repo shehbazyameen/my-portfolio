@@ -6,7 +6,8 @@ export const VideoSection = ({ theme }) => {
         {
             id: 'MTHF6dwBcNw?si=oCqIXiAO2IjlhpjV', // Replace with your YouTube video ID
             title: 'Meet Shehbaz Yameen',
-            description: 'Full-Stack Developer | Web & Mobile Apps Specialist'
+            description: 'Web & Mobile Apps Specialist'
+          //  description: 'Full-Stack Developer | Web & Mobile Apps Specialist'
         },
        
     ];
